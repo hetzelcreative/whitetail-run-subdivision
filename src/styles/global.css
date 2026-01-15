@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+html {
+  scroll-behavior: smooth;
+}
+
+.gradient-bg {
+  background: linear-gradient(135deg, hsl(40 40% 97%), hsl(40 30% 93%));
+}
+
+.gradient-bg-dark {
+  background: linear-gradient(135deg, hsl(30 10% 15%), hsl(25 8% 10%));
+}
+
+.decorative-line {
+  width: 5rem;
+  height: 0.25rem;
+  background: #a8a29e; /* stone-400 */
+}
+
+.nav-link.active {
+  color: hsl(212 100% 31%); /* blue-900 */
+}

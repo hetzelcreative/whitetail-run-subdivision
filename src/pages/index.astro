@@ -1,16 +1,1849 @@
 ---
-
+import "../styles/global.css";
+import { Image } from "astro:assets";
+import about1 from "../assets/images/about-1.png";
+import about2 from "../assets/images/about-2.jpg";
+import mapImage from "../assets/images/map.png";
+import heroImage from "../assets/images/hero.jpg";
+import Section from "../components/Section.astro";
 ---
 
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Oak Ridge Park - Glenwood, Iowa</title>
+  </head>
+  <body class="font-sans antialiased">
+    <!-- Header -->
+    <header
+      id="main-header"
+      class="fixed top-0 left-0 right-0 z-50 py-6 transition-all duration-300"
+    >
+      <div class="container mx-auto px-6">
+        <div class="flex items-center justify-between">
+          <!-- Logo -->
+          <div class="flex-shrink-0">
+            <a href="#" id="logo-link" class="cursor-pointer">
+              <img
+                src="/oak-ridge-park-logo.png"
+                alt="Oak Ridge Park"
+                class="h-28 w-auto transition-all duration-300"
+                id="header-logo"
+              />
+            </a>
+          </div>
+
+          <!-- Navigation -->
+          <nav
+            class="hidden md:flex items-center space-x-8"
+            style="font-family: 'Inter', sans-serif;"
+          >
+            <a
+              href="#about"
+              class="nav-link text-stone-800 hover:text-stone-600 transition-colors font-bold text-sm uppercase tracking-widest"
+              data-section="about">About</a
+            >
+            <a
+              href="#location"
+              class="nav-link text-stone-800 hover:text-stone-600 transition-colors font-bold text-sm uppercase tracking-widest"
+              data-section="location">Location</a
+            >
+            <a
+              href="#available-lots"
+              class="nav-link text-stone-800 hover:text-stone-600 transition-colors font-bold text-sm uppercase tracking-widest"
+              data-section="available-lots">Available Lots</a
+            >
+            <a
+              href="#homes-for-sale"
+              class="nav-link text-stone-800 hover:text-stone-600 transition-colors font-bold text-sm uppercase tracking-widest"
+              data-section="homes-for-sale">Homes For Sale</a
+            >
+            <a
+              href="#contact"
+              class="nav-link text-stone-800 hover:text-stone-600 transition-colors font-bold text-sm uppercase tracking-widest"
+              data-section="contact">Contact</a
+            >
+          </nav>
+
+          <!-- CTA Button -->
+          <div class="flex-shrink-0">
+            <a
+              href="#contact"
+              class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-medium transition-colors uppercase tracking-widest text-sm"
+              style="font-family: 'Inter', sans-serif;"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section
+      id="hero"
+      class="relative min-h-screen flex flex-col bg-cover bg-center"
+      style="background-image: url('/hero.jpg');"
+    >
+      <!-- Overlay -->
+      <div class="absolute inset-0 bg-stone-50/75"></div>
+
+      <!-- Hero Content -->
+      <div
+        class="relative z-10 flex-1 flex items-center justify-center text-center px-6 py-32 pt-48"
+      >
+        <div>
+          <p class="text-stone-700 text-base tracking-widest uppercase mb-6">
+            Glenwood, Iowa
+          </p>
+
+          <h1
+            class="text-6xl md:text-8xl font-semibold text-stone-900 mb-8"
+            style="font-family: 'Vollkorn', serif;"
+          >
+            Welcome to<br />
+            <span class="italic">Oak Ridge Park</span>
+          </h1>
+
+          <p
+            class="text-lg md:text-xl text-stone-700 max-w-3xl mx-auto mb-12 leading-relaxed"
+          >
+            Discover your dream homesite in this exclusive subdivision featuring
+            spacious lots, mature oak trees, and the peaceful beauty of Iowa
+            countryside.
+          </p>
+
+          <!-- CTA Buttons -->
+          <div
+            class="flex flex-col sm:flex-row items-center justify-center gap-4"
+          >
+            <a
+              href="#available-lots"
+              class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-md font-medium transition-colors uppercase tracking-widest text-sm"
+              style="font-family: 'Inter', sans-serif;"
+            >
+              View Available Lots
+            </a>
+            <a
+              href="#tour"
+              class="bg-transparent border-2 border-stone-800 text-stone-800 hover:bg-stone-800 hover:text-white px-8 py-4 rounded-md font-medium transition-colors uppercase tracking-widest text-sm"
+              style="font-family: 'Inter', sans-serif;"
+            >
+              Schedule a Tour
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <Section id="about" class="gradient-bg">
+      <div class="grid md:grid-cols-2 gap-20 items-center">
+        <!-- Left: Images -->
+        <div class="relative">
+          <!-- Background Image - Full Width -->
+          <Image
+            src={about1}
+            alt="Oak Ridge Park neighborhood"
+            class="w-full h-auto rounded-lg shadow-lg"
+            widths={[600, 800, 1000]}
+            sizes="(max-width: 768px) 100vw, 600px"
+          />
+          <!-- Overlay Image - Positioned Bottom Right -->
+          <div
+            class="absolute bottom-0 right-0 w-3/5 transform translate-y-8 translate-x-8"
+          >
+            <Image
+              src={about2}
+              alt="Oak Ridge Park oak trees"
+              class="w-full h-auto rounded-lg shadow-2xl"
+              widths={[400, 600, 800]}
+              sizes="(max-width: 768px) 60vw, 400px"
+            />
+          </div>
+        </div>
+
+        <!-- Right: Content -->
+        <div>
+          <p
+            class="text-red-600 text-sm font-bold tracking-widest uppercase mb-4"
+            style="font-family: 'Inter', sans-serif;"
+          >
+            About Oak Ridge Park
+          </p>
+
+          <h2
+            class="text-5xl md:text-6xl font-semibold text-stone-900 mb-6"
+            style="font-family: 'Vollkorn', serif;"
+          >
+            Where Nature Meets<br />
+            <span class="text-blue-900 italic">Modern Living</span>
+          </h2>
+
+          <div class="decorative-line mb-8"></div>
+
+          <p class="text-stone-600 text-lg mb-6 leading-relaxed">
+            Nestled in the heart of Glenwood, Iowa, Oak Ridge Park Subdivision
+            offers an unparalleled opportunity to build your dream home
+            surrounded by natural beauty and modern conveniences.
+          </p>
+
+          <p class="text-stone-600 text-lg mb-10 leading-relaxed">
+            Our thoughtfully planned community features spacious lots shaded by
+            majestic oak trees, providing the perfect backdrop for family life
+            while remaining just minutes from schools, shopping, and major
+            highways.
+          </p>
+
+          <!-- Features Grid -->
+          <div class="grid grid-cols-2 gap-6">
+            <div class="flex items-start space-x-3">
+              <div class="w-2 h-2 bg-red-600 rounded-full mt-2.5 flex-shrink-0">
+              </div>
+              <div>
+                <h3
+                  class="font-semibold text-stone-900 mb-1"
+                  style="font-family: 'Vollkorn', serif; font-size: 1.5rem;"
+                >
+                  Prime Location
+                </h3>
+                <p class="text-stone-600 text-sm">
+                  Minutes from downtown Glenwood
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-2 h-2 bg-red-600 rounded-full mt-2.5 flex-shrink-0">
+              </div>
+              <div>
+                <h3
+                  class="font-semibold text-stone-900 mb-1"
+                  style="font-family: 'Vollkorn', serif; font-size: 1.5rem;"
+                >
+                  Scenic Beauty
+                </h3>
+                <p class="text-stone-600 text-sm">
+                  Mature oak trees throughout
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-2 h-2 bg-red-600 rounded-full mt-2.5 flex-shrink-0">
+              </div>
+              <div>
+                <h3
+                  class="font-semibold text-stone-900 mb-1"
+                  style="font-family: 'Vollkorn', serif; font-size: 1.5rem;"
+                >
+                  Quality Schools
+                </h3>
+                <p class="text-stone-600 text-sm">
+                  Excellent Glenwood schools nearby
+                </p>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <div class="w-2 h-2 bg-red-600 rounded-full mt-2.5 flex-shrink-0">
+              </div>
+              <div>
+                <h3
+                  class="font-semibold text-stone-900 mb-1"
+                  style="font-family: 'Vollkorn', serif; font-size: 1.5rem;"
+                >
+                  Flexible Building
+                </h3>
+                <p class="text-stone-600 text-sm">Bring your own builder</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Prime Home Sites Section -->
+    <Section background="bg-white">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <h2
+          class="text-5xl md:text-6xl font-semibold mb-6"
+          style="font-family: 'Vollkorn', serif;"
+        >
+          Prime <span class="text-red-600">HOME</span> Sites –<br />
+          <span class="text-red-600 italic">Choose Yours Today!</span>
+        </h2>
+      </div>
+
+      <!-- Plat Map -->
+      <div class="relative mb-16">
+        <div class="bg-stone-100 rounded-lg overflow-hidden">
+          <Image
+            src={mapImage}
+            alt="Oak Ridge Park Subdivision Plat Map"
+            class="w-full h-auto"
+            widths={[800, 1200, 1600]}
+            sizes="(max-width: 768px) 100vw, 1200px"
+          />
+        </div>
+
+        <!-- "Models Coming Soon" Badge -->
+        <div
+          class="absolute top-8 left-8 bg-red-600 text-white rounded-full w-32 h-32 flex items-center justify-center shadow-2xl transform -rotate-12"
+        >
+          <div class="text-center">
+            <p
+              class="text-xl font-semibold italic leading-tight"
+              style="font-family: 'Vollkorn', serif;"
+            >
+              Models<br />Coming<br />Soon!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features List -->
+      <div class="max-w-5xl mx-auto">
+        <div class="grid md:grid-cols-2 gap-x-12 gap-y-4">
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-800 text-lg">
+              Western Iowa Network - Fiber Optic Internet
+            </p>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-800 text-lg">City Water & City Sewer</p>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-800 text-lg">
+              Located 20 Minutes from Offutt Air Force Base
+            </p>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-800 text-lg">
+              Located 20 Minutes from the Omaha Metro Area
+            </p>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-800 text-lg">
+              Close Proximity to Our Thriving Town Square
+            </p>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-800 text-lg">
+              Close Proximity to Our City Park & Trails
+            </p>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-800 text-lg">
+              Close Proximity to the High School & Middle School, Short Commute
+              to the Elementary Schools
+            </p>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-800 text-lg">
+              Glenwood Community School District
+            </p>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-800 text-lg">No HOA Fees</p>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-800 text-lg">
+              Townhome & Single Family Home Sites
+            </p>
+          </div>
+
+          <div class="flex items-start space-x-3">
+            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            </div>
+            <p class="text-stone-800 text-lg">Ranch & 2 Story Homes</p>
+          </div>
+        </div>
+
+        <!-- CTA Button -->
+        <div class="mt-12 text-center">
+          <a
+            href="#contact"
+            class="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-md font-medium transition-colors uppercase tracking-widest text-sm"
+            style="font-family: 'Inter', sans-serif;"
+          >
+            View Available Lots
+          </a>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Location Section -->
+    <Section id="location" class="gradient-bg">
+      <!-- Section Content -->
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <!-- Left: Content -->
+        <div>
+          <h2
+            class="text-5xl md:text-6xl font-semibold text-stone-900 mb-6"
+            style="font-family: 'Vollkorn', serif;"
+          >
+            On the Edge of<br />
+            <span class="text-blue-900 italic">Downtown Glenwood</span>
+          </h2>
+
+          <div class="decorative-line mb-8"></div>
+
+          <p class="text-stone-600 text-lg mb-12 leading-relaxed">
+            Oak Ridge Park offers the best of both worlds – peaceful country
+            living with convenient access to everything the Omaha metro area has
+            to offer. Located in Glenwood, Iowa, you'll enjoy small-town charm
+            while being just a short drive from big-city amenities.
+          </p>
+
+          <!-- Nearby Locations -->
+          <div class="grid grid-cols-2 gap-4">
+            <div
+              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+            >
+              <svg
+                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <h4 class="font-bold text-stone-900 mb-1">Downtown Glenwood</h4>
+                <p class="text-stone-600 text-sm">5 minutes</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+            >
+              <svg
+                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <h4 class="font-bold text-stone-900 mb-1">Glenwood Schools</h4>
+                <p class="text-stone-600 text-sm">7 minutes</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+            >
+              <svg
+                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <h4 class="font-bold text-stone-900 mb-1">
+                  Lake Manawa State Park
+                </h4>
+                <p class="text-stone-600 text-sm">15 minutes</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+            >
+              <svg
+                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <h4 class="font-bold text-stone-900 mb-1">
+                  Council Bluffs, IA
+                </h4>
+                <p class="text-stone-600 text-sm">20 minutes</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+            >
+              <svg
+                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <h4 class="font-bold text-stone-900 mb-1">Omaha Metro</h4>
+                <p class="text-stone-600 text-sm">30 minutes</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+            >
+              <svg
+                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <h4 class="font-bold text-stone-900 mb-1">
+                  Offutt Air Force Base
+                </h4>
+                <p class="text-stone-600 text-sm">25 minutes</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+            >
+              <svg
+                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <h4 class="font-bold text-stone-900 mb-1">Eppley Airfield</h4>
+                <p class="text-stone-600 text-sm">35 minutes</p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+            >
+              <svg
+                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+              <div>
+                <h4 class="font-bold text-stone-900 mb-1">I-29 Access</h4>
+                <p class="text-stone-600 text-sm">10 minutes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Map -->
+        <div class="relative">
+          <div class="rounded-lg overflow-hidden shadow-xl aspect-square">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d47759.68741632384!2d-95.76987!3d41.04632!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x87938e3be1f5b5e3%3A0x9f9a8f4b4f7c7c7c!2sGlenwood%2C%20IA%2051534!5e0!3m2!1sen!2sus!4v1234567890123"
+              width="100%"
+              height="100%"
+              style="border:0;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Lot Listings Section -->
+    <Section id="available-lots" class="gradient-bg-dark">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <p
+          class="text-red-600 text-sm font-bold tracking-widest uppercase mb-6"
+          style="font-family: 'Inter', sans-serif;"
+        >
+          Find Your Lot
+        </p>
+        <h2
+          class="text-5xl md:text-6xl font-semibold text-white mb-6"
+          style="font-family: 'Vollkorn', serif;"
+        >
+          Available Homesites
+        </h2>
+        <div class="decorative-line mx-auto mb-8"></div>
+        <p class="text-stone-300 text-lg max-w-3xl mx-auto leading-relaxed">
+          Choose from a variety of lot sizes to find the perfect foundation for
+          your dream home. Each lot offers unique features and positioning.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        <!-- Left: Plat Map -->
+        <div class="rounded-lg overflow-hidden">
+          <Image
+            src={mapImage}
+            alt="Oak Ridge Park Plat Map"
+            class="w-full h-auto"
+            widths={[600, 800]}
+            sizes="(max-width: 768px) 100vw, 600px"
+          />
+        </div>
+
+        <!-- Right: Lot Cards Grid -->
+        <div class="grid grid-cols-3 gap-4">
+          <!-- Lot 1 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 1
+              </h3>
+              <span
+                class="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Available</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.52 acres
+              </p>
+            </div>
+          </div>
+
+          <!-- Lot 2 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 2
+              </h3>
+              <span
+                class="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Available</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.48 acres
+              </p>
+            </div>
+          </div>
+
+          <!-- Lot 3 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 3
+              </h3>
+              <span
+                class="bg-stone-400 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Sold</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.61 acres
+              </p>
+            </div>
+          </div>
+
+          <!-- Lot 4 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 4
+              </h3>
+              <span
+                class="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Available</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.55 acres
+              </p>
+            </div>
+          </div>
+
+          <!-- Lot 5 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 5
+              </h3>
+              <span
+                class="bg-amber-600 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Sale Pending</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.72 acres
+              </p>
+            </div>
+          </div>
+
+          <!-- Lot 6 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 6
+              </h3>
+              <span
+                class="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Available</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.58 acres
+              </p>
+            </div>
+          </div>
+
+          <!-- Lot 7 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 7
+              </h3>
+              <span
+                class="bg-stone-400 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Sold</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.65 acres
+              </p>
+            </div>
+          </div>
+
+          <!-- Lot 8 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 8
+              </h3>
+              <span
+                class="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Available</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.49 acres
+              </p>
+            </div>
+          </div>
+
+          <!-- Lot 9 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 9
+              </h3>
+              <span
+                class="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Available</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.80 acres
+              </p>
+            </div>
+          </div>
+
+          <!-- Lot 10 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 10
+              </h3>
+              <span
+                class="bg-stone-400 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Sold</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.58 acres
+              </p>
+            </div>
+          </div>
+
+          <!-- Lot 11 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 11
+              </h3>
+              <span
+                class="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Available</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.52 acres
+              </p>
+            </div>
+          </div>
+
+          <!-- Lot 12 -->
+          <div class="bg-stone-100 rounded-lg p-4">
+            <div class="flex items-center justify-between mb-3">
+              <h3
+                class="text-lg font-semibold text-stone-900"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Lot 12
+              </h3>
+              <span
+                class="bg-green-600 text-white text-xs font-semibold px-3 py-1 rounded-full"
+                >Available</span
+              >
+            </div>
+            <div class="space-y-2">
+              <p class="text-sm text-stone-600 flex items-center gap-1">
+                <svg
+                  class="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                0.45 acres
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Homes for Sale Section -->
+    <Section id="homes-for-sale" background="bg-stone-50">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <p
+          class="text-red-600 text-sm font-bold tracking-widest uppercase mb-6"
+          style="font-family: 'Inter', sans-serif;"
+        >
+          Current Listings
+        </p>
+        <h2
+          class="text-5xl md:text-6xl font-semibold text-stone-900 mb-6"
+          style="font-family: 'Vollkorn', serif;"
+        >
+          Home for Sale
+        </h2>
+        <div class="decorative-line mx-auto mb-8"></div>
+        <p class="text-stone-600 text-lg max-w-3xl mx-auto leading-relaxed">
+          Discover move-in ready homes built by quality local builders, or
+          purchase a lot to build your custom dream home.
+        </p>
+      </div>
+
+      <!-- Property Cards -->
+      <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+        <!-- Property 1 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+          <div class="relative">
+            <Image
+              src={heroImage}
+              alt="Modern Farmhouse on Lot 7"
+              class="w-full h-64 object-cover"
+              widths={[400, 600]}
+              sizes="(max-width: 768px) 100vw, 400px"
+            />
+            <span
+              class="absolute top-4 left-4 bg-green-600 text-white text-sm font-semibold px-4 py-2 rounded-full"
+              >For Sale</span
+            >
+            <div
+              class="absolute top-4 right-4 bg-white text-stone-900 text-2xl font-semibold px-4 py-2 rounded-lg"
+              style="font-family: 'Vollkorn', serif;"
+            >
+              $485,000
+            </div>
+          </div>
+          <div class="p-6">
+            <h3
+              class="text-2xl font-semibold text-stone-900 mb-4"
+              style="font-family: 'Vollkorn', serif;"
+            >
+              Modern Farmhouse on Lot 7
+            </h3>
+            <div class="flex items-center gap-6 text-stone-600 mb-6">
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                <span>4 Beds</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span>3 Baths</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                  ></path>
+                </svg>
+                <span>2,850 sqft</span>
+              </div>
+            </div>
+            <a
+              href="#contact"
+              class="block w-full text-center border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-3 rounded-md font-medium transition-colors"
+            >
+              View Details →
+            </a>
+          </div>
+        </div>
+
+        <!-- Property 2 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+          <div class="relative">
+            <Image
+              src={heroImage}
+              alt="Craftsman Estate on Lot 3"
+              class="w-full h-64 object-cover"
+              widths={[400, 600]}
+              sizes="(max-width: 768px) 100vw, 400px"
+            />
+            <span
+              class="absolute top-4 left-4 bg-green-600 text-white text-sm font-semibold px-4 py-2 rounded-full"
+              >For Sale</span
+            >
+            <div
+              class="absolute top-4 right-4 bg-white text-stone-900 text-2xl font-semibold px-4 py-2 rounded-lg"
+              style="font-family: 'Vollkorn', serif;"
+            >
+              $525,000
+            </div>
+          </div>
+          <div class="p-6">
+            <h3
+              class="text-2xl font-semibold text-stone-900 mb-4"
+              style="font-family: 'Vollkorn', serif;"
+            >
+              Craftsman Estate on Lot 3
+            </h3>
+            <div class="flex items-center gap-6 text-stone-600 mb-6">
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                <span>5 Beds</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span>3.5 Baths</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                  ></path>
+                </svg>
+                <span>3,200 sqft</span>
+              </div>
+            </div>
+            <a
+              href="#contact"
+              class="block w-full text-center border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-3 rounded-md font-medium transition-colors"
+            >
+              View Details →
+            </a>
+          </div>
+        </div>
+
+        <!-- Property 3 -->
+        <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+          <div class="relative">
+            <Image
+              src={heroImage}
+              alt="Contemporary Ranch on Lot 10"
+              class="w-full h-64 object-cover"
+              widths={[400, 600]}
+              sizes="(max-width: 768px) 100vw, 400px"
+            />
+            <span
+              class="absolute top-4 left-4 bg-stone-400 text-white text-sm font-semibold px-4 py-2 rounded-full"
+              >Sold</span
+            >
+            <div
+              class="absolute top-4 right-4 bg-white text-stone-900 text-2xl font-semibold px-4 py-2 rounded-lg"
+              style="font-family: 'Vollkorn', serif;"
+            >
+              $420,000
+            </div>
+          </div>
+          <div class="p-6">
+            <h3
+              class="text-2xl font-semibold text-stone-900 mb-4"
+              style="font-family: 'Vollkorn', serif;"
+            >
+              Contemporary Ranch on Lot 10
+            </h3>
+            <div class="flex items-center gap-6 text-stone-600 mb-6">
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
+                  ></path>
+                </svg>
+                <span>3 Beds</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                <span>2.5 Baths</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg
+                  class="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
+                  ></path>
+                </svg>
+                <span>2,400 sqft</span>
+              </div>
+            </div>
+            <a
+              href="#contact"
+              class="block w-full text-center border-2 border-stone-400 text-stone-400 px-6 py-3 rounded-md font-medium cursor-not-allowed"
+            >
+              View Details →
+            </a>
+          </div>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Contact Section -->
+    <Section id="contact" class="gradient-bg-dark">
+      <div class="grid md:grid-cols-2 gap-16 items-start">
+        <!-- Left: Contact Info -->
+        <div>
+          <p
+            class="text-red-600 text-sm font-bold tracking-widest uppercase mb-6"
+            style="font-family: 'Inter', sans-serif;"
+          >
+            Get in Touch
+          </p>
+
+          <h2
+            class="text-5xl md:text-6xl font-semibold text-white mb-6"
+            style="font-family: 'Vollkorn', serif;"
+          >
+            Ready to Find Your<br />
+            <span class="italic">Perfect Homesite?</span>
+          </h2>
+
+          <div class="w-16 h-1 bg-red-600 mb-8"></div>
+
+          <p class="text-stone-300 text-lg mb-12 leading-relaxed">
+            Whether you're looking to purchase a lot, explore available
+            properties, or just want to learn more about Oak Ridge Park, we're
+            here to help. Reach out today and let us guide you home.
+          </p>
+
+          <!-- Contact Details -->
+          <div class="space-y-8 mb-12">
+            <!-- Phone -->
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  class="w-6 h-6 text-red-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <p class="text-stone-400 text-sm mb-1">Call Us</p>
+                <a
+                  href="tel:+14026901100"
+                  class="text-white text-2xl font-bold hover:text-red-600 transition-colors"
+                  >(402) 690-1100</a
+                >
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  class="w-6 h-6 text-red-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <p class="text-stone-400 text-sm mb-1">Email Us</p>
+                <a
+                  href="mailto:info@oakridgeparkia.com"
+                  class="text-white text-xl font-bold hover:text-red-600 transition-colors"
+                  >info@oakridgeparkia.com</a
+                >
+              </div>
+            </div>
+
+            <!-- Location -->
+            <div class="flex items-start gap-4">
+              <div
+                class="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center flex-shrink-0"
+              >
+                <svg
+                  class="w-6 h-6 text-red-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+              </div>
+              <div>
+                <p class="text-stone-400 text-sm mb-1">Visit Us</p>
+                <p class="text-white text-xl font-bold">Glenwood, Iowa 51534</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Listed By Box -->
+          <div
+            class="border-2 border-stone-700 rounded-lg p-6 flex items-center gap-6 bg-stone-800"
+          >
+            <img
+              src="/jhre-logo.svg"
+              alt="Jim Hughes Real Estate"
+              class="h-24 w-auto flex-shrink-0"
+            />
+            <div>
+              <p class="text-stone-400 text-sm mb-2">Listed by</p>
+              <h3
+                class="text-red-600 text-3xl font-bold mb-2"
+                style="font-family: 'Vollkorn', serif;"
+              >
+                Jim Hughes Real Estate
+              </h3>
+              <p class="text-stone-300">410 South Locust, Glenwood, IA 51534</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="bg-stone-50 rounded-2xl p-8">
+          <h3
+            class="text-3xl font-semibold text-stone-900 mb-8"
+            style="font-family: 'Vollkorn', serif;"
+          >
+            Send Us a Message
+          </h3>
+
+          <form class="space-y-6">
+            <!-- Name and Phone Row -->
+            <div class="grid md:grid-cols-2 gap-6">
+              <div>
+                <input
+                  type="text"
+                  placeholder="John Smith"
+                  class="w-full px-4 py-3 bg-stone-100 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-red-600 transition-colors text-stone-900"
+                />
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  placeholder="(402) 555-1234"
+                  class="w-full px-4 py-3 bg-stone-100 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-red-600 transition-colors text-stone-900"
+                />
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div>
+              <input
+                type="email"
+                placeholder="john@example.com"
+                class="w-full px-4 py-3 bg-stone-100 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-red-600 transition-colors text-stone-900"
+              />
+            </div>
+
+            <!-- Select Dropdown -->
+            <div>
+              <select
+                class="w-full px-4 py-3 bg-stone-100 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-red-600 transition-colors text-stone-600 appearance-none"
+                style="background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;"
+              >
+                <option>Select an option...</option>
+                <option>Interested in buying a lot</option>
+                <option>Interested in available homes</option>
+                <option>General inquiry</option>
+                <option>Schedule a tour</option>
+              </select>
+            </div>
+
+            <!-- Message Textarea -->
+            <div>
+              <textarea
+                rows="6"
+                placeholder="Tell us about what you're looking for..."
+                class="w-full px-4 py-3 bg-stone-100 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-red-600 transition-colors text-stone-900 resize-none"
+              ></textarea>
+            </div>
+
+            <!-- Submit Button -->
+            <button
+              type="submit"
+              class="w-full bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-medium transition-colors uppercase tracking-widest text-sm flex items-center justify-center gap-2"
+              style="font-family: 'Inter', sans-serif;"
+            >
+              Send Message
+              <svg
+                class="w-5 h-5"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path>
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
+    </Section>
+
+    <!-- Footer -->
+    <footer class="gradient-bg-dark text-stone-300">
+      <div class="container mx-auto px-6 py-16">
+        <div class="grid md:grid-cols-3 gap-12 mb-12">
+          <!-- Left: Logo and Description -->
+          <div>
+            <img
+              src="/oak-ridge-park-logo.png"
+              alt="Oak Ridge Park"
+              class="h-20 w-auto mb-6 brightness-0 invert"
+            />
+            <p class="text-stone-400 leading-relaxed mb-6">
+              Oak Ridge Park Subdivision offers premium homesites in beautiful
+              Glenwood, Iowa. Build your dream home surrounded by mature oak
+              trees and the peaceful Iowa countryside.
+            </p>
+
+            <!-- Social Media Icons -->
+            <div class="flex items-center gap-4">
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-stone-700 hover:bg-red-600 flex items-center justify-center transition-colors"
+                aria-label="Facebook"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
+                  ></path>
+                </svg>
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 rounded-full bg-stone-700 hover:bg-red-600 flex items-center justify-center transition-colors"
+                aria-label="Instagram"
+              >
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                  <path
+                    d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Middle: Quick Links -->
+          <div>
+            <h3
+              class="text-white text-2xl font-semibold mb-6"
+              style="font-family: 'Vollkorn', serif;"
+            >
+              Quick Links
+            </h3>
+            <nav class="space-y-3">
+              <a
+                href="#about"
+                class="block text-stone-400 hover:text-white transition-colors"
+                >About</a
+              >
+              <a
+                href="#available-lots"
+                class="block text-stone-400 hover:text-white transition-colors"
+                >Features</a
+              >
+              <a
+                href="#available-lots"
+                class="block text-stone-400 hover:text-white transition-colors"
+                >Available Lots</a
+              >
+              <a
+                href="#homes-for-sale"
+                class="block text-stone-400 hover:text-white transition-colors"
+                >Properties</a
+              >
+              <a
+                href="#"
+                class="block text-stone-400 hover:text-white transition-colors"
+                >Gallery</a
+              >
+              <a
+                href="#contact"
+                class="block text-stone-400 hover:text-white transition-colors"
+                >Contact</a
+              >
+            </nav>
+          </div>
+
+          <!-- Right: Contact -->
+          <div>
+            <h3
+              class="text-white text-2xl font-semibold mb-6"
+              style="font-family: 'Vollkorn', serif;"
+            >
+              Contact
+            </h3>
+            <div class="space-y-4">
+              <a
+                href="tel:+14026901100"
+                class="flex items-center gap-3 text-stone-400 hover:text-white transition-colors"
+              >
+                <svg
+                  class="w-5 h-5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
+                  ></path>
+                </svg>
+                (402) 690-1100
+              </a>
+              <a
+                href="mailto:info@oakridgeparkia.com"
+                class="flex items-center gap-3 text-stone-400 hover:text-white transition-colors"
+              >
+                <svg
+                  class="w-5 h-5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  ></path>
+                </svg>
+                info@oakridgeparkia.com
+              </a>
+              <div class="flex items-center gap-3 text-stone-400">
+                <svg
+                  class="w-5 h-5 flex-shrink-0"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+                  ></path>
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                </svg>
+                Glenwood, Iowa 51534
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom Bar -->
+        <div
+          class="border-t border-stone-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm"
+        >
+          <p class="text-stone-500">
+            &copy; 2026 Oak Ridge Park Subdivision. All rights reserved.
+          </p>
+          <p class="text-stone-500">
+            Listed by <a
+              href="#"
+              class="text-white hover:text-red-600 font-semibold"
+              >Jim Hughes Real Estate</a
+            > | 410 South Locust, Glenwood, IA 51534
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Add white background to header on scroll
+      const header = document.getElementById("main-header");
+      const logo = document.getElementById("header-logo");
+      const logoLink = document.getElementById("logo-link");
+      const navLinks = document.querySelectorAll(".nav-link");
+      const sections = document.querySelectorAll("section[id]");
+
+      // Header scroll effect
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+          header.classList.add("bg-white", "shadow-md");
+          logo.classList.remove("h-28");
+          logo.classList.add("h-20");
+        } else {
+          header.classList.remove("bg-white", "shadow-md");
+          logo.classList.remove("h-20");
+          logo.classList.add("h-28");
+        }
+      });
+
+      // Logo click - scroll to top
+      logoLink.addEventListener("click", (e) => {
+        e.preventDefault();
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth",
+        });
+      });
+
+      // Active navigation based on scroll position
+      const observerOptions = {
+        root: null,
+        rootMargin: "-20% 0px -60% 0px",
+        threshold: 0,
+      };
+
+      const observerCallback = (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.getAttribute("id");
+            navLinks.forEach((link) => {
+              link.classList.remove("active");
+              // Only add active class if this isn't the hero section
+              if (
+                sectionId !== "hero" &&
+                link.getAttribute("data-section") === sectionId
+              ) {
+                link.classList.add("active");
+              }
+            });
+          }
+        });
+      };
+
+      const observer = new IntersectionObserver(
+        observerCallback,
+        observerOptions,
+      );
+      sections.forEach((section) => observer.observe(section));
+
+      // Smooth scroll with offset for fixed header
+      navLinks.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const targetId = link.getAttribute("href").substring(1);
+          const targetSection = document.getElementById(targetId);
+          if (targetSection) {
+            const headerHeight = header.offsetHeight;
+            const targetPosition = targetSection.offsetTop - headerHeight;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: "smooth",
+            });
+          }
+        });
+      });
+    </script>
+  </body>
 </html>
