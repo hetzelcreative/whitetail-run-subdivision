@@ -86,7 +86,7 @@ import Section from "../components/Section.astro";
             <a
               href="#contact"
               class="text-white px-6 py-3 rounded-md font-medium transition-all uppercase tracking-widest text-sm shadow-lg hover:brightness-110"
-              style="font-family: 'Inter', sans-serif; background-color: #C99255;"
+              style="font-family: 'Inter', sans-serif; background: linear-gradient(to bottom, #2C5046, #313D3D);"
             >
               Contact Us
             </a>
@@ -98,9 +98,19 @@ import Section from "../components/Section.astro";
     <!-- Hero Section -->
     <section
       id="hero"
-      class="relative min-h-screen flex flex-col bg-cover bg-center"
-      style="background-image: url('/hero.jpg');"
+      class="relative min-h-screen flex flex-col overflow-hidden"
     >
+      <!-- Video Background -->
+      <video
+        autoplay
+        loop
+        muted
+        playsinline
+        class="absolute inset-0 w-full h-full object-cover"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+      </video>
+
       <!-- Overlay -->
       <div class="absolute inset-0 bg-gradient-to-b from-emerald-950/85 via-slate-900/80 to-emerald-950/90" style="background: linear-gradient(to bottom, rgba(46, 53, 54, 0.85), rgba(47, 58, 58, 0.8), rgba(46, 53, 54, 0.9));"></div>
 
@@ -110,12 +120,16 @@ import Section from "../components/Section.astro";
         style="padding-top: calc(12rem + 60px);"
       >
         <div>
+          <p class="text-gold text-base tracking-widest uppercase mb-6 font-semibold">
+            Glenwood, IA Subdivision
+          </p>
+
           <h1
             class="text-6xl md:text-8xl font-semibold mb-8 text-white"
             style="font-family: 'Vollkorn', serif;"
           >
             Where Nature<br />
-            <span class="text-gold">Meets Home</span>
+            Meets Home
           </h1>
 
           <p
@@ -132,8 +146,8 @@ import Section from "../components/Section.astro";
           >
             <a
               href="#available-lots"
-              class="bg-gold text-white px-8 py-4 rounded-md font-medium transition-all uppercase tracking-widest text-sm shadow-lg hover:shadow-xl hover:brightness-110"
-              style="font-family: 'Inter', sans-serif; background-color: #C99255;"
+              class="text-white px-8 py-4 rounded-md font-medium transition-all uppercase tracking-widest text-sm shadow-lg hover:shadow-xl hover:brightness-110"
+              style="font-family: 'Inter', sans-serif; background: linear-gradient(to bottom, #2C5046, #313D3D);"
             >
               View Available Lots
             </a>
@@ -152,28 +166,16 @@ import Section from "../components/Section.astro";
     <!-- About Section -->
     <Section id="about" class="gradient-bg">
       <div class="grid md:grid-cols-2 gap-20 items-center">
-        <!-- Left: Images -->
+        <!-- Left: Video -->
         <div class="relative">
-          <!-- Background Image - Full Width -->
-          <Image
-            src={about1}
-            alt="Whitetail Run neighborhood"
+          <video
+            controls
             class="w-full h-auto rounded-lg shadow-lg"
-            widths={[600, 800, 1000]}
-            sizes="(max-width: 768px) 100vw, 600px"
-          />
-          <!-- Overlay Image - Positioned Bottom Right -->
-          <div
-            class="absolute bottom-0 right-0 w-3/5 transform translate-y-8 translate-x-8"
+            poster="/video-poster.jpg"
           >
-            <Image
-              src={about2}
-              alt="Whitetail Run oak trees"
-              class="w-full h-auto rounded-lg shadow-2xl"
-              widths={[400, 600, 800]}
-              sizes="(max-width: 768px) 60vw, 400px"
-            />
-          </div>
+            <source src="/hero-video.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </div>
 
         <!-- Right: Content -->
@@ -407,8 +409,8 @@ import Section from "../components/Section.astro";
         <div class="mt-12 text-center">
           <a
             href="#contact"
-            class="inline-block bg-gold hover:brightness-110 text-white px-8 py-4 rounded-md font-medium transition-colors uppercase tracking-widest text-sm"
-            style="font-family: 'Inter', sans-serif;"
+            class="inline-block hover:brightness-110 text-white px-8 py-4 rounded-md font-medium transition-colors uppercase tracking-widest text-sm"
+            style="font-family: 'Inter', sans-serif; background: linear-gradient(to bottom, #2C5046, #313D3D);"
           >
             View Available Lots
           </a>
@@ -1573,8 +1575,8 @@ import Section from "../components/Section.astro";
             <!-- Submit Button -->
             <button
               type="submit"
-              class="w-full bg-gold hover:brightness-110 text-white px-8 py-4 rounded-lg font-medium transition-colors uppercase tracking-widest text-sm flex items-center justify-center gap-2"
-              style="font-family: 'Inter', sans-serif;"
+              class="w-full hover:brightness-110 text-white px-8 py-4 rounded-lg font-medium transition-colors uppercase tracking-widest text-sm flex items-center justify-center gap-2"
+              style="font-family: 'Inter', sans-serif; background: linear-gradient(to bottom, #2C5046, #313D3D);"
             >
               Send Message
               <svg
