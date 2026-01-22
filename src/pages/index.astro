@@ -26,18 +26,25 @@ import Section from "../components/Section.astro";
     <!-- Header -->
     <header
       id="main-header"
-      class="fixed top-0 left-0 right-0 z-50 py-6 transition-all duration-300"
+      class="fixed top-0 left-0 right-0 z-50 py-2 transition-all duration-300 ease-in-out"
     >
       <div class="container mx-auto px-6">
         <div class="flex items-center justify-between">
           <!-- Logo -->
-          <div class="flex-shrink-0">
+          <div class="flex-shrink-0 relative">
             <a href="#" id="logo-link" class="cursor-pointer">
               <img
                 src="/whitetail-run-logo.png"
                 alt="Whitetail Run"
-                class="h-28 w-auto transition-all duration-300"
-                id="header-logo"
+                class="h-48 w-auto transition-all duration-300 ease-in-out"
+                id="header-logo-full"
+              />
+              <img
+                src="/whitetail-run-lettermark-white.png"
+                alt="Whitetail Run"
+                class="absolute top-0 left-0 transition-all duration-300 ease-in-out opacity-0"
+                id="header-logo-mark"
+                style="width: 190px; height: auto; max-width: none;"
               />
             </a>
           </div>
@@ -49,27 +56,27 @@ import Section from "../components/Section.astro";
           >
             <a
               href="#about"
-              class="nav-link text-stone-800 hover:text-stone-600 transition-colors font-bold text-sm uppercase tracking-widest"
+              class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
               data-section="about">About</a
             >
             <a
               href="#location"
-              class="nav-link text-stone-800 hover:text-stone-600 transition-colors font-bold text-sm uppercase tracking-widest"
+              class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
               data-section="location">Location</a
             >
             <a
               href="#available-lots"
-              class="nav-link text-stone-800 hover:text-stone-600 transition-colors font-bold text-sm uppercase tracking-widest"
+              class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
               data-section="available-lots">Available Lots</a
             >
             <a
               href="#homes-for-sale"
-              class="nav-link text-stone-800 hover:text-stone-600 transition-colors font-bold text-sm uppercase tracking-widest"
+              class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
               data-section="homes-for-sale">Homes For Sale</a
             >
             <a
               href="#contact"
-              class="nav-link text-stone-800 hover:text-stone-600 transition-colors font-bold text-sm uppercase tracking-widest"
+              class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
               data-section="contact">Contact</a
             >
           </nav>
@@ -78,8 +85,8 @@ import Section from "../components/Section.astro";
           <div class="flex-shrink-0">
             <a
               href="#contact"
-              class="bg-red-600 hover:bg-red-700 text-white px-6 py-3 rounded-md font-medium transition-colors uppercase tracking-widest text-sm"
-              style="font-family: 'Inter', sans-serif;"
+              class="text-white px-6 py-3 rounded-md font-medium transition-all uppercase tracking-widest text-sm shadow-lg hover:brightness-110"
+              style="font-family: 'Inter', sans-serif; background-color: #C99255;"
             >
               Contact Us
             </a>
@@ -95,27 +102,24 @@ import Section from "../components/Section.astro";
       style="background-image: url('/hero.jpg');"
     >
       <!-- Overlay -->
-      <div class="absolute inset-0 bg-stone-50/75"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-emerald-950/85 via-slate-900/80 to-emerald-950/90" style="background: linear-gradient(to bottom, rgba(46, 53, 54, 0.85), rgba(47, 58, 58, 0.8), rgba(46, 53, 54, 0.9));"></div>
 
       <!-- Hero Content -->
       <div
         class="relative z-10 flex-1 flex items-center justify-center text-center px-6 py-32 pt-48"
+        style="padding-top: calc(12rem + 60px);"
       >
         <div>
-          <p class="text-stone-700 text-base tracking-widest uppercase mb-6">
-            Glenwood, Iowa
-          </p>
-
           <h1
-            class="text-6xl md:text-8xl font-semibold text-stone-900 mb-8"
+            class="text-6xl md:text-8xl font-semibold mb-8 text-white"
             style="font-family: 'Vollkorn', serif;"
           >
-            Welcome to<br />
-            <span class="italic">Whitetail Run</span>
+            Where Nature<br />
+            <span class="text-gold">Meets Home</span>
           </h1>
 
           <p
-            class="text-lg md:text-xl text-stone-700 max-w-3xl mx-auto mb-12 leading-relaxed"
+            class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-12 leading-relaxed"
           >
             Discover your dream homesite in this exclusive subdivision featuring
             spacious lots, mature oak trees, and the peaceful beauty of Iowa
@@ -128,15 +132,15 @@ import Section from "../components/Section.astro";
           >
             <a
               href="#available-lots"
-              class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-md font-medium transition-colors uppercase tracking-widest text-sm"
-              style="font-family: 'Inter', sans-serif;"
+              class="bg-gold text-white px-8 py-4 rounded-md font-medium transition-all uppercase tracking-widest text-sm shadow-lg hover:shadow-xl hover:brightness-110"
+              style="font-family: 'Inter', sans-serif; background-color: #C99255;"
             >
               View Available Lots
             </a>
             <a
               href="#tour"
-              class="bg-transparent border-2 border-stone-800 text-stone-800 hover:bg-stone-800 hover:text-white px-8 py-4 rounded-md font-medium transition-colors uppercase tracking-widest text-sm"
-              style="font-family: 'Inter', sans-serif;"
+              class="bg-transparent border-2 text-gold hover:bg-gold hover:text-white px-8 py-4 rounded-md font-medium transition-all uppercase tracking-widest text-sm hover:shadow-lg"
+              style="font-family: 'Inter', sans-serif; border-color: #C99255;"
             >
               Schedule a Tour
             </a>
@@ -175,29 +179,29 @@ import Section from "../components/Section.astro";
         <!-- Right: Content -->
         <div>
           <p
-            class="text-red-600 text-sm font-bold tracking-widest uppercase mb-4"
+            class="text-gold text-sm font-bold tracking-widest uppercase mb-4"
             style="font-family: 'Inter', sans-serif;"
           >
             About Whitetail Run
           </p>
 
           <h2
-            class="text-5xl md:text-6xl font-semibold text-stone-900 mb-6"
+            class="text-5xl md:text-6xl font-semibold mb-6 text-white"
             style="font-family: 'Vollkorn', serif;"
           >
             Where Nature Meets<br />
-            <span class="text-blue-900 italic">Modern Living</span>
+            <span class="text-gold italic">Modern Living</span>
           </h2>
 
           <div class="decorative-line mb-8"></div>
 
-          <p class="text-stone-600 text-lg mb-6 leading-relaxed">
+          <p class="text-slate-300 text-lg mb-6 leading-relaxed">
             Nestled in the heart of Glenwood, Iowa, Whitetail Run Subdivision
             offers an unparalleled opportunity to build your dream home
             surrounded by natural beauty and modern conveniences.
           </p>
 
-          <p class="text-stone-600 text-lg mb-10 leading-relaxed">
+          <p class="text-slate-300 text-lg mb-10 leading-relaxed">
             Our thoughtfully planned community features spacious lots shaded by
             majestic oak trees, providing the perfect backdrop for family life
             while remaining just minutes from schools, shopping, and major
@@ -207,64 +211,64 @@ import Section from "../components/Section.astro";
           <!-- Features Grid -->
           <div class="grid grid-cols-2 gap-6">
             <div class="flex items-start space-x-3">
-              <div class="w-2 h-2 bg-red-600 rounded-full mt-2.5 flex-shrink-0">
+              <div class="w-2 h-2 bg-gold rounded-full mt-2.5 flex-shrink-0">
               </div>
               <div>
                 <h3
-                  class="font-semibold text-stone-900 mb-1"
+                  class="font-semibold text-white mb-1"
                   style="font-family: 'Vollkorn', serif; font-size: 1.5rem;"
                 >
                   Prime Location
                 </h3>
-                <p class="text-stone-600 text-sm">
+                <p class="text-slate-300 text-sm">
                   Minutes from downtown Glenwood
                 </p>
               </div>
             </div>
 
             <div class="flex items-start space-x-3">
-              <div class="w-2 h-2 bg-red-600 rounded-full mt-2.5 flex-shrink-0">
+              <div class="w-2 h-2 bg-gold rounded-full mt-2.5 flex-shrink-0">
               </div>
               <div>
                 <h3
-                  class="font-semibold text-stone-900 mb-1"
+                  class="font-semibold text-white mb-1"
                   style="font-family: 'Vollkorn', serif; font-size: 1.5rem;"
                 >
                   Scenic Beauty
                 </h3>
-                <p class="text-stone-600 text-sm">
+                <p class="text-slate-300 text-sm">
                   Mature oak trees throughout
                 </p>
               </div>
             </div>
 
             <div class="flex items-start space-x-3">
-              <div class="w-2 h-2 bg-red-600 rounded-full mt-2.5 flex-shrink-0">
+              <div class="w-2 h-2 bg-gold rounded-full mt-2.5 flex-shrink-0">
               </div>
               <div>
                 <h3
-                  class="font-semibold text-stone-900 mb-1"
+                  class="font-semibold text-white mb-1"
                   style="font-family: 'Vollkorn', serif; font-size: 1.5rem;"
                 >
                   Quality Schools
                 </h3>
-                <p class="text-stone-600 text-sm">
+                <p class="text-slate-300 text-sm">
                   Excellent Glenwood schools nearby
                 </p>
               </div>
             </div>
 
             <div class="flex items-start space-x-3">
-              <div class="w-2 h-2 bg-red-600 rounded-full mt-2.5 flex-shrink-0">
+              <div class="w-2 h-2 bg-gold rounded-full mt-2.5 flex-shrink-0">
               </div>
               <div>
                 <h3
-                  class="font-semibold text-stone-900 mb-1"
+                  class="font-semibold text-white mb-1"
                   style="font-family: 'Vollkorn', serif; font-size: 1.5rem;"
                 >
                   Flexible Building
                 </h3>
-                <p class="text-stone-600 text-sm">Bring your own builder</p>
+                <p class="text-slate-300 text-sm">Bring your own builder</p>
               </div>
             </div>
           </div>
@@ -273,21 +277,21 @@ import Section from "../components/Section.astro";
     </Section>
 
     <!-- Prime Home Sites Section -->
-    <Section background="bg-white">
+    <Section background="bg-forest">
       <!-- Section Header -->
       <div class="text-center mb-16">
         <h2
-          class="text-5xl md:text-6xl font-semibold mb-6"
+          class="text-5xl md:text-6xl font-semibold mb-6 text-white"
           style="font-family: 'Vollkorn', serif;"
         >
-          Prime <span class="text-red-600">HOME</span> Sites –<br />
-          <span class="text-red-600 italic">Choose Yours Today!</span>
+          Prime <span class="text-gold">HOME</span> Sites –<br />
+          <span class="text-gold italic">Choose Yours Today!</span>
         </h2>
       </div>
 
       <!-- Plat Map -->
       <div class="relative mb-16">
-        <div class="bg-stone-100 rounded-lg overflow-hidden">
+        <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg overflow-hidden">
           <Image
             src={mapImage}
             alt="Whitetail Run Subdivision Plat Map"
@@ -299,7 +303,7 @@ import Section from "../components/Section.astro";
 
         <!-- "Models Coming Soon" Badge -->
         <div
-          class="absolute top-8 left-8 bg-red-600 text-white rounded-full w-32 h-32 flex items-center justify-center shadow-2xl transform -rotate-12"
+          class="absolute top-8 left-8 bg-gold text-white rounded-full w-32 h-32 flex items-center justify-center shadow-2xl transform -rotate-12"
         >
           <div class="text-center">
             <p
@@ -316,86 +320,86 @@ import Section from "../components/Section.astro";
       <div class="max-w-5xl mx-auto">
         <div class="grid md:grid-cols-2 gap-x-12 gap-y-4">
           <div class="flex items-start space-x-3">
-            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
             </div>
-            <p class="text-stone-800 text-lg">
+            <p class="text-slate-100 text-lg">
               Western Iowa Network - Fiber Optic Internet
             </p>
           </div>
 
           <div class="flex items-start space-x-3">
-            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
             </div>
-            <p class="text-stone-800 text-lg">City Water & City Sewer</p>
+            <p class="text-slate-100 text-lg">City Water & City Sewer</p>
           </div>
 
           <div class="flex items-start space-x-3">
-            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
             </div>
-            <p class="text-stone-800 text-lg">
+            <p class="text-slate-100 text-lg">
               Located 20 Minutes from Offutt Air Force Base
             </p>
           </div>
 
           <div class="flex items-start space-x-3">
-            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
             </div>
-            <p class="text-stone-800 text-lg">
+            <p class="text-slate-100 text-lg">
               Located 20 Minutes from the Omaha Metro Area
             </p>
           </div>
 
           <div class="flex items-start space-x-3">
-            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
             </div>
-            <p class="text-stone-800 text-lg">
+            <p class="text-slate-100 text-lg">
               Close Proximity to Our Thriving Town Square
             </p>
           </div>
 
           <div class="flex items-start space-x-3">
-            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
             </div>
-            <p class="text-stone-800 text-lg">
+            <p class="text-slate-100 text-lg">
               Close Proximity to Our City Park & Trails
             </p>
           </div>
 
           <div class="flex items-start space-x-3">
-            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
             </div>
-            <p class="text-stone-800 text-lg">
+            <p class="text-slate-100 text-lg">
               Close Proximity to the High School & Middle School, Short Commute
               to the Elementary Schools
             </p>
           </div>
 
           <div class="flex items-start space-x-3">
-            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
             </div>
-            <p class="text-stone-800 text-lg">
+            <p class="text-slate-100 text-lg">
               Glenwood Community School District
             </p>
           </div>
 
           <div class="flex items-start space-x-3">
-            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
             </div>
-            <p class="text-stone-800 text-lg">No HOA Fees</p>
+            <p class="text-slate-100 text-lg">No HOA Fees</p>
           </div>
 
           <div class="flex items-start space-x-3">
-            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
             </div>
-            <p class="text-stone-800 text-lg">
+            <p class="text-slate-100 text-lg">
               Townhome & Single Family Home Sites
             </p>
           </div>
 
           <div class="flex items-start space-x-3">
-            <div class="w-2 h-2 bg-red-600 rounded-full mt-2 flex-shrink-0">
+            <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
             </div>
-            <p class="text-stone-800 text-lg">Ranch & 2 Story Homes</p>
+            <p class="text-slate-100 text-lg">Ranch & 2 Story Homes</p>
           </div>
         </div>
 
@@ -403,7 +407,7 @@ import Section from "../components/Section.astro";
         <div class="mt-12 text-center">
           <a
             href="#contact"
-            class="inline-block bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-md font-medium transition-colors uppercase tracking-widest text-sm"
+            class="inline-block bg-gold hover:brightness-110 text-white px-8 py-4 rounded-md font-medium transition-colors uppercase tracking-widest text-sm"
             style="font-family: 'Inter', sans-serif;"
           >
             View Available Lots
@@ -419,16 +423,16 @@ import Section from "../components/Section.astro";
         <!-- Left: Content -->
         <div>
           <h2
-            class="text-5xl md:text-6xl font-semibold text-stone-900 mb-6"
+            class="text-5xl md:text-6xl font-semibold mb-6 text-white"
             style="font-family: 'Vollkorn', serif;"
           >
             On the Edge of<br />
-            <span class="text-blue-900 italic">Downtown Glenwood</span>
+            <span class="text-gold italic">Downtown Glenwood</span>
           </h2>
 
           <div class="decorative-line mb-8"></div>
 
-          <p class="text-stone-600 text-lg mb-12 leading-relaxed">
+          <p class="text-slate-300 text-lg mb-12 leading-relaxed">
             Whitetail Run offers the best of both worlds – peaceful country
             living with convenient access to everything the Omaha metro area has
             to offer. Located in Glenwood, Iowa, you'll enjoy small-town charm
@@ -438,10 +442,10 @@ import Section from "../components/Section.astro";
           <!-- Nearby Locations -->
           <div class="grid grid-cols-2 gap-4">
             <div
-              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+              class="flex items-start gap-3 bg-slate-800/40 p-4 rounded-lg shadow-lg shadow-amber-900/10 border border-slate-700/50"
             >
               <svg
-                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                class="w-6 h-6 text-gold flex-shrink-0 mt-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -453,16 +457,16 @@ import Section from "../components/Section.astro";
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               <div>
-                <h4 class="font-bold text-stone-900 mb-1">Downtown Glenwood</h4>
-                <p class="text-stone-600 text-sm">5 minutes</p>
+                <h4 class="font-bold text-white mb-1">Downtown Glenwood</h4>
+                <p class="text-slate-300 text-sm">5 minutes</p>
               </div>
             </div>
 
             <div
-              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+              class="flex items-start gap-3 bg-slate-800/40 p-4 rounded-lg shadow-lg shadow-amber-900/10 border border-slate-700/50"
             >
               <svg
-                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                class="w-6 h-6 text-gold flex-shrink-0 mt-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -474,16 +478,16 @@ import Section from "../components/Section.astro";
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               <div>
-                <h4 class="font-bold text-stone-900 mb-1">Glenwood Schools</h4>
-                <p class="text-stone-600 text-sm">7 minutes</p>
+                <h4 class="font-bold text-white mb-1">Glenwood Schools</h4>
+                <p class="text-slate-300 text-sm">7 minutes</p>
               </div>
             </div>
 
             <div
-              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+              class="flex items-start gap-3 bg-slate-800/40 p-4 rounded-lg shadow-lg shadow-amber-900/10 border border-slate-700/50"
             >
               <svg
-                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                class="w-6 h-6 text-gold flex-shrink-0 mt-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -495,18 +499,18 @@ import Section from "../components/Section.astro";
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               <div>
-                <h4 class="font-bold text-stone-900 mb-1">
+                <h4 class="font-bold text-white mb-1">
                   Lake Manawa State Park
                 </h4>
-                <p class="text-stone-600 text-sm">15 minutes</p>
+                <p class="text-slate-300 text-sm">15 minutes</p>
               </div>
             </div>
 
             <div
-              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+              class="flex items-start gap-3 bg-slate-800/40 p-4 rounded-lg shadow-lg shadow-amber-900/10 border border-slate-700/50"
             >
               <svg
-                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                class="w-6 h-6 text-gold flex-shrink-0 mt-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -518,18 +522,18 @@ import Section from "../components/Section.astro";
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               <div>
-                <h4 class="font-bold text-stone-900 mb-1">
+                <h4 class="font-bold text-white mb-1">
                   Council Bluffs, IA
                 </h4>
-                <p class="text-stone-600 text-sm">20 minutes</p>
+                <p class="text-slate-300 text-sm">20 minutes</p>
               </div>
             </div>
 
             <div
-              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+              class="flex items-start gap-3 bg-slate-800/40 p-4 rounded-lg shadow-lg shadow-amber-900/10 border border-slate-700/50"
             >
               <svg
-                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                class="w-6 h-6 text-gold flex-shrink-0 mt-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -541,16 +545,16 @@ import Section from "../components/Section.astro";
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               <div>
-                <h4 class="font-bold text-stone-900 mb-1">Omaha Metro</h4>
-                <p class="text-stone-600 text-sm">30 minutes</p>
+                <h4 class="font-bold text-white mb-1">Omaha Metro</h4>
+                <p class="text-slate-300 text-sm">30 minutes</p>
               </div>
             </div>
 
             <div
-              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+              class="flex items-start gap-3 bg-slate-800/40 p-4 rounded-lg shadow-lg shadow-amber-900/10 border border-slate-700/50"
             >
               <svg
-                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                class="w-6 h-6 text-gold flex-shrink-0 mt-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -562,18 +566,18 @@ import Section from "../components/Section.astro";
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               <div>
-                <h4 class="font-bold text-stone-900 mb-1">
+                <h4 class="font-bold text-white mb-1">
                   Offutt Air Force Base
                 </h4>
-                <p class="text-stone-600 text-sm">25 minutes</p>
+                <p class="text-slate-300 text-sm">25 minutes</p>
               </div>
             </div>
 
             <div
-              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+              class="flex items-start gap-3 bg-slate-800/40 p-4 rounded-lg shadow-lg shadow-amber-900/10 border border-slate-700/50"
             >
               <svg
-                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                class="w-6 h-6 text-gold flex-shrink-0 mt-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -585,16 +589,16 @@ import Section from "../components/Section.astro";
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               <div>
-                <h4 class="font-bold text-stone-900 mb-1">Eppley Airfield</h4>
-                <p class="text-stone-600 text-sm">35 minutes</p>
+                <h4 class="font-bold text-white mb-1">Eppley Airfield</h4>
+                <p class="text-slate-300 text-sm">35 minutes</p>
               </div>
             </div>
 
             <div
-              class="flex items-start gap-3 bg-white p-4 rounded-lg shadow-sm border border-stone-200"
+              class="flex items-start gap-3 bg-slate-800/40 p-4 rounded-lg shadow-lg shadow-amber-900/10 border border-slate-700/50"
             >
               <svg
-                class="w-6 h-6 text-red-600 flex-shrink-0 mt-1"
+                class="w-6 h-6 text-gold flex-shrink-0 mt-1"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -606,8 +610,8 @@ import Section from "../components/Section.astro";
                   d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
               </svg>
               <div>
-                <h4 class="font-bold text-stone-900 mb-1">I-29 Access</h4>
-                <p class="text-stone-600 text-sm">10 minutes</p>
+                <h4 class="font-bold text-white mb-1">I-29 Access</h4>
+                <p class="text-slate-300 text-sm">10 minutes</p>
               </div>
             </div>
           </div>
@@ -630,11 +634,11 @@ import Section from "../components/Section.astro";
     </Section>
 
     <!-- Lot Listings Section -->
-    <Section id="available-lots" class="gradient-bg-dark">
+    <Section id="available-lots" class="gradient-bg-light">
       <!-- Section Header -->
       <div class="text-center mb-16">
         <p
-          class="text-red-600 text-sm font-bold tracking-widest uppercase mb-6"
+          class="text-gold text-sm font-bold tracking-widest uppercase mb-6"
           style="font-family: 'Inter', sans-serif;"
         >
           Find Your Lot
@@ -667,10 +671,10 @@ import Section from "../components/Section.astro";
         <!-- Right: Lot Cards Grid -->
         <div class="grid grid-cols-3 gap-4">
           <!-- Lot 1 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 1
@@ -681,7 +685,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -701,10 +705,10 @@ import Section from "../components/Section.astro";
           </div>
 
           <!-- Lot 2 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 2
@@ -715,7 +719,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -735,10 +739,10 @@ import Section from "../components/Section.astro";
           </div>
 
           <!-- Lot 3 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 3
@@ -749,7 +753,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -769,10 +773,10 @@ import Section from "../components/Section.astro";
           </div>
 
           <!-- Lot 4 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 4
@@ -783,7 +787,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -803,10 +807,10 @@ import Section from "../components/Section.astro";
           </div>
 
           <!-- Lot 5 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 5
@@ -817,7 +821,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -837,10 +841,10 @@ import Section from "../components/Section.astro";
           </div>
 
           <!-- Lot 6 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 6
@@ -851,7 +855,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -871,10 +875,10 @@ import Section from "../components/Section.astro";
           </div>
 
           <!-- Lot 7 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 7
@@ -885,7 +889,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -905,10 +909,10 @@ import Section from "../components/Section.astro";
           </div>
 
           <!-- Lot 8 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 8
@@ -919,7 +923,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -939,10 +943,10 @@ import Section from "../components/Section.astro";
           </div>
 
           <!-- Lot 9 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 9
@@ -953,7 +957,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -973,10 +977,10 @@ import Section from "../components/Section.astro";
           </div>
 
           <!-- Lot 10 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 10
@@ -987,7 +991,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -1007,10 +1011,10 @@ import Section from "../components/Section.astro";
           </div>
 
           <!-- Lot 11 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 11
@@ -1021,7 +1025,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -1041,10 +1045,10 @@ import Section from "../components/Section.astro";
           </div>
 
           <!-- Lot 12 -->
-          <div class="bg-stone-100 rounded-lg p-4">
+          <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg p-4">
             <div class="flex items-center justify-between mb-3">
               <h3
-                class="text-lg font-semibold text-stone-900"
+                class="text-lg font-semibold text-white"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Lot 12
@@ -1055,7 +1059,7 @@ import Section from "../components/Section.astro";
               >
             </div>
             <div class="space-y-2">
-              <p class="text-sm text-stone-600 flex items-center gap-1">
+              <p class="text-sm text-slate-300 flex items-center gap-1">
                 <svg
                   class="w-4 h-4"
                   fill="none"
@@ -1078,23 +1082,23 @@ import Section from "../components/Section.astro";
     </Section>
 
     <!-- Homes for Sale Section -->
-    <Section id="homes-for-sale" background="bg-stone-50">
+    <Section id="homes-for-sale" background="bg-forest">
       <!-- Section Header -->
       <div class="text-center mb-16">
         <p
-          class="text-red-600 text-sm font-bold tracking-widest uppercase mb-6"
+          class="text-gold text-sm font-bold tracking-widest uppercase mb-6"
           style="font-family: 'Inter', sans-serif;"
         >
           Current Listings
         </p>
         <h2
-          class="text-5xl md:text-6xl font-semibold text-stone-900 mb-6"
+          class="text-5xl md:text-6xl font-semibold text-white mb-6"
           style="font-family: 'Vollkorn', serif;"
         >
           Home for Sale
         </h2>
         <div class="decorative-line mx-auto mb-8"></div>
-        <p class="text-stone-600 text-lg max-w-3xl mx-auto leading-relaxed">
+        <p class="text-slate-300 text-lg max-w-3xl mx-auto leading-relaxed">
           Discover move-in ready homes built by quality local builders, or
           purchase a lot to build your custom dream home.
         </p>
@@ -1103,7 +1107,7 @@ import Section from "../components/Section.astro";
       <!-- Property Cards -->
       <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
         <!-- Property 1 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+        <div class="bg-slate-800/60 rounded-xl overflow-hidden shadow-xl shadow-amber-900/20 border border-slate-700/30">
           <div class="relative">
             <Image
               src={heroImage}
@@ -1117,7 +1121,7 @@ import Section from "../components/Section.astro";
               >For Sale</span
             >
             <div
-              class="absolute top-4 right-4 bg-white text-stone-900 text-2xl font-semibold px-4 py-2 rounded-lg"
+              class="absolute top-4 right-4 bg-white text-white text-2xl font-semibold px-4 py-2 rounded-lg"
               style="font-family: 'Vollkorn', serif;"
             >
               $485,000
@@ -1125,12 +1129,12 @@ import Section from "../components/Section.astro";
           </div>
           <div class="p-6">
             <h3
-              class="text-2xl font-semibold text-stone-900 mb-4"
+              class="text-2xl font-semibold text-white mb-4"
               style="font-family: 'Vollkorn', serif;"
             >
               Modern Farmhouse on Lot 7
             </h3>
-            <div class="flex items-center gap-6 text-stone-600 mb-6">
+            <div class="flex items-center gap-6 text-slate-300 mb-6">
               <div class="flex items-center gap-2">
                 <svg
                   class="w-5 h-5"
@@ -1182,7 +1186,7 @@ import Section from "../components/Section.astro";
             </div>
             <a
               href="#contact"
-              class="block w-full text-center border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-3 rounded-md font-medium transition-colors"
+              class="block w-full text-center border-2 border-gold text-gold hover:bg-gold hover:text-white px-6 py-3 rounded-md font-medium transition-colors"
             >
               View Details →
             </a>
@@ -1190,7 +1194,7 @@ import Section from "../components/Section.astro";
         </div>
 
         <!-- Property 2 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+        <div class="bg-slate-800/60 rounded-xl overflow-hidden shadow-xl shadow-amber-900/20 border border-slate-700/30">
           <div class="relative">
             <Image
               src={heroImage}
@@ -1204,7 +1208,7 @@ import Section from "../components/Section.astro";
               >For Sale</span
             >
             <div
-              class="absolute top-4 right-4 bg-white text-stone-900 text-2xl font-semibold px-4 py-2 rounded-lg"
+              class="absolute top-4 right-4 bg-white text-white text-2xl font-semibold px-4 py-2 rounded-lg"
               style="font-family: 'Vollkorn', serif;"
             >
               $525,000
@@ -1212,12 +1216,12 @@ import Section from "../components/Section.astro";
           </div>
           <div class="p-6">
             <h3
-              class="text-2xl font-semibold text-stone-900 mb-4"
+              class="text-2xl font-semibold text-white mb-4"
               style="font-family: 'Vollkorn', serif;"
             >
               Craftsman Estate on Lot 3
             </h3>
-            <div class="flex items-center gap-6 text-stone-600 mb-6">
+            <div class="flex items-center gap-6 text-slate-300 mb-6">
               <div class="flex items-center gap-2">
                 <svg
                   class="w-5 h-5"
@@ -1269,7 +1273,7 @@ import Section from "../components/Section.astro";
             </div>
             <a
               href="#contact"
-              class="block w-full text-center border-2 border-red-600 text-red-600 hover:bg-red-600 hover:text-white px-6 py-3 rounded-md font-medium transition-colors"
+              class="block w-full text-center border-2 border-gold text-gold hover:bg-gold hover:text-white px-6 py-3 rounded-md font-medium transition-colors"
             >
               View Details →
             </a>
@@ -1277,7 +1281,7 @@ import Section from "../components/Section.astro";
         </div>
 
         <!-- Property 3 -->
-        <div class="bg-white rounded-xl overflow-hidden shadow-lg">
+        <div class="bg-slate-800/60 rounded-xl overflow-hidden shadow-xl shadow-amber-900/20 border border-slate-700/30">
           <div class="relative">
             <Image
               src={heroImage}
@@ -1291,7 +1295,7 @@ import Section from "../components/Section.astro";
               >Sold</span
             >
             <div
-              class="absolute top-4 right-4 bg-white text-stone-900 text-2xl font-semibold px-4 py-2 rounded-lg"
+              class="absolute top-4 right-4 bg-white text-white text-2xl font-semibold px-4 py-2 rounded-lg"
               style="font-family: 'Vollkorn', serif;"
             >
               $420,000
@@ -1299,12 +1303,12 @@ import Section from "../components/Section.astro";
           </div>
           <div class="p-6">
             <h3
-              class="text-2xl font-semibold text-stone-900 mb-4"
+              class="text-2xl font-semibold text-white mb-4"
               style="font-family: 'Vollkorn', serif;"
             >
               Contemporary Ranch on Lot 10
             </h3>
-            <div class="flex items-center gap-6 text-stone-600 mb-6">
+            <div class="flex items-center gap-6 text-slate-300 mb-6">
               <div class="flex items-center gap-2">
                 <svg
                   class="w-5 h-5"
@@ -1356,7 +1360,7 @@ import Section from "../components/Section.astro";
             </div>
             <a
               href="#contact"
-              class="block w-full text-center border-2 border-stone-400 text-stone-400 px-6 py-3 rounded-md font-medium cursor-not-allowed"
+              class="block w-full text-center border-2 border-stone-400 text-slate-400 px-6 py-3 rounded-md font-medium cursor-not-allowed"
             >
               View Details →
             </a>
@@ -1371,7 +1375,7 @@ import Section from "../components/Section.astro";
         <!-- Left: Contact Info -->
         <div>
           <p
-            class="text-red-600 text-sm font-bold tracking-widest uppercase mb-6"
+            class="text-gold text-sm font-bold tracking-widest uppercase mb-6"
             style="font-family: 'Inter', sans-serif;"
           >
             Get in Touch
@@ -1385,7 +1389,7 @@ import Section from "../components/Section.astro";
             <span class="italic">Perfect Homesite?</span>
           </h2>
 
-          <div class="w-16 h-1 bg-red-600 mb-8"></div>
+          <div class="w-16 h-1 bg-gold mb-8"></div>
 
           <p class="text-stone-300 text-lg mb-12 leading-relaxed">
             Whether you're looking to purchase a lot, explore available
@@ -1398,10 +1402,10 @@ import Section from "../components/Section.astro";
             <!-- Phone -->
             <div class="flex items-start gap-4">
               <div
-                class="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center flex-shrink-0"
+                class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0"
               >
                 <svg
-                  class="w-6 h-6 text-red-600"
+                  class="w-6 h-6 text-gold"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -1415,10 +1419,10 @@ import Section from "../components/Section.astro";
                 </svg>
               </div>
               <div>
-                <p class="text-stone-400 text-sm mb-1">Call Us</p>
+                <p class="text-slate-400 text-sm mb-1">Call Us</p>
                 <a
                   href="tel:+14026901100"
-                  class="text-white text-2xl font-bold hover:text-red-600 transition-colors"
+                  class="text-white text-2xl font-bold hover:text-gold transition-colors"
                   >(402) 690-1100</a
                 >
               </div>
@@ -1427,10 +1431,10 @@ import Section from "../components/Section.astro";
             <!-- Email -->
             <div class="flex items-start gap-4">
               <div
-                class="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center flex-shrink-0"
+                class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0"
               >
                 <svg
-                  class="w-6 h-6 text-red-600"
+                  class="w-6 h-6 text-gold"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -1444,10 +1448,10 @@ import Section from "../components/Section.astro";
                 </svg>
               </div>
               <div>
-                <p class="text-stone-400 text-sm mb-1">Email Us</p>
+                <p class="text-slate-400 text-sm mb-1">Email Us</p>
                 <a
                   href="mailto:info@whitetailrunia.com"
-                  class="text-white text-xl font-bold hover:text-red-600 transition-colors"
+                  class="text-white text-xl font-bold hover:text-gold transition-colors"
                   >info@whitetailrunia.com</a
                 >
               </div>
@@ -1456,10 +1460,10 @@ import Section from "../components/Section.astro";
             <!-- Location -->
             <div class="flex items-start gap-4">
               <div
-                class="w-12 h-12 rounded-full bg-red-600/10 flex items-center justify-center flex-shrink-0"
+                class="w-12 h-12 rounded-full bg-gold/10 flex items-center justify-center flex-shrink-0"
               >
                 <svg
-                  class="w-6 h-6 text-red-600"
+                  class="w-6 h-6 text-gold"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -1478,7 +1482,7 @@ import Section from "../components/Section.astro";
                 </svg>
               </div>
               <div>
-                <p class="text-stone-400 text-sm mb-1">Visit Us</p>
+                <p class="text-slate-400 text-sm mb-1">Visit Us</p>
                 <p class="text-white text-xl font-bold">Glenwood, Iowa 51534</p>
               </div>
             </div>
@@ -1494,9 +1498,9 @@ import Section from "../components/Section.astro";
               class="h-24 w-auto flex-shrink-0"
             />
             <div>
-              <p class="text-stone-400 text-sm mb-2">Listed by</p>
+              <p class="text-slate-400 text-sm mb-2">Listed by</p>
               <h3
-                class="text-red-600 text-3xl font-bold mb-2"
+                class="text-gold text-3xl font-bold mb-2"
                 style="font-family: 'Vollkorn', serif;"
               >
                 Jim Hughes Real Estate
@@ -1507,9 +1511,9 @@ import Section from "../components/Section.astro";
         </div>
 
         <!-- Right: Contact Form -->
-        <div class="bg-stone-50 rounded-2xl p-8">
+        <div class="bg-slate-800/60 backdrop-blur-sm rounded-2xl p-8 border border-slate-700/50 shadow-xl shadow-amber-900/20">
           <h3
-            class="text-3xl font-semibold text-stone-900 mb-8"
+            class="text-3xl font-semibold text-white mb-8"
             style="font-family: 'Vollkorn', serif;"
           >
             Send Us a Message
@@ -1522,14 +1526,14 @@ import Section from "../components/Section.astro";
                 <input
                   type="text"
                   placeholder="John Smith"
-                  class="w-full px-4 py-3 bg-stone-100 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-red-600 transition-colors text-stone-900"
+                  class="w-full px-4 py-3 bg-slate-800/50 backdrop-blur-sm border-2 border-slate-600/50 rounded-lg focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors text-white"
                 />
               </div>
               <div>
                 <input
                   type="tel"
                   placeholder="(402) 555-1234"
-                  class="w-full px-4 py-3 bg-stone-100 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-red-600 transition-colors text-stone-900"
+                  class="w-full px-4 py-3 bg-slate-800/50 backdrop-blur-sm border-2 border-slate-600/50 rounded-lg focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors text-white"
                 />
               </div>
             </div>
@@ -1539,14 +1543,14 @@ import Section from "../components/Section.astro";
               <input
                 type="email"
                 placeholder="john@example.com"
-                class="w-full px-4 py-3 bg-stone-100 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-red-600 transition-colors text-stone-900"
+                class="w-full px-4 py-3 bg-slate-800/50 backdrop-blur-sm border-2 border-slate-600/50 rounded-lg focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors text-white"
               />
             </div>
 
             <!-- Select Dropdown -->
             <div>
               <select
-                class="w-full px-4 py-3 bg-stone-100 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-red-600 transition-colors text-stone-600 appearance-none"
+                class="w-full px-4 py-3 bg-slate-800/50 backdrop-blur-sm border-2 border-slate-600/50 rounded-lg focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors text-slate-300 appearance-none"
                 style="background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e'); background-repeat: no-repeat; background-position: right 1rem center; background-size: 1.5em 1.5em;"
               >
                 <option>Select an option...</option>
@@ -1562,14 +1566,14 @@ import Section from "../components/Section.astro";
               <textarea
                 rows="6"
                 placeholder="Tell us about what you're looking for..."
-                class="w-full px-4 py-3 bg-stone-100 border-2 border-stone-200 rounded-lg focus:outline-none focus:border-red-600 transition-colors text-stone-900 resize-none"
+                class="w-full px-4 py-3 bg-slate-800/50 backdrop-blur-sm border-2 border-slate-600/50 rounded-lg focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors text-white resize-none"
               ></textarea>
             </div>
 
             <!-- Submit Button -->
             <button
               type="submit"
-              class="w-full bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg font-medium transition-colors uppercase tracking-widest text-sm flex items-center justify-center gap-2"
+              class="w-full bg-gold hover:brightness-110 text-white px-8 py-4 rounded-lg font-medium transition-colors uppercase tracking-widest text-sm flex items-center justify-center gap-2"
               style="font-family: 'Inter', sans-serif;"
             >
               Send Message
@@ -1600,9 +1604,9 @@ import Section from "../components/Section.astro";
             <img
               src="/whitetail-run-logo.png"
               alt="Whitetail Run"
-              class="h-20 w-auto mb-6 brightness-0 invert"
+              class="h-20 w-auto mb-6"
             />
-            <p class="text-stone-400 leading-relaxed mb-6">
+            <p class="text-slate-400 leading-relaxed mb-6">
               Whitetail Run Subdivision offers premium homesites in beautiful
               Glenwood, Iowa. Build your dream home surrounded by mature oak
               trees and the peaceful Iowa countryside.
@@ -1612,7 +1616,7 @@ import Section from "../components/Section.astro";
             <div class="flex items-center gap-4">
               <a
                 href="#"
-                class="w-10 h-10 rounded-full bg-stone-700 hover:bg-red-600 flex items-center justify-center transition-colors"
+                class="w-10 h-10 rounded-full bg-stone-700 hover:bg-gold flex items-center justify-center transition-colors"
                 aria-label="Facebook"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -1623,7 +1627,7 @@ import Section from "../components/Section.astro";
               </a>
               <a
                 href="#"
-                class="w-10 h-10 rounded-full bg-stone-700 hover:bg-red-600 flex items-center justify-center transition-colors"
+                class="w-10 h-10 rounded-full bg-stone-700 hover:bg-gold flex items-center justify-center transition-colors"
                 aria-label="Instagram"
               >
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -1646,32 +1650,32 @@ import Section from "../components/Section.astro";
             <nav class="space-y-3">
               <a
                 href="#about"
-                class="block text-stone-400 hover:text-white transition-colors"
+                class="block text-slate-400 hover:text-white transition-colors"
                 >About</a
               >
               <a
                 href="#available-lots"
-                class="block text-stone-400 hover:text-white transition-colors"
+                class="block text-slate-400 hover:text-white transition-colors"
                 >Features</a
               >
               <a
                 href="#available-lots"
-                class="block text-stone-400 hover:text-white transition-colors"
+                class="block text-slate-400 hover:text-white transition-colors"
                 >Available Lots</a
               >
               <a
                 href="#homes-for-sale"
-                class="block text-stone-400 hover:text-white transition-colors"
+                class="block text-slate-400 hover:text-white transition-colors"
                 >Properties</a
               >
               <a
                 href="#"
-                class="block text-stone-400 hover:text-white transition-colors"
+                class="block text-slate-400 hover:text-white transition-colors"
                 >Gallery</a
               >
               <a
                 href="#contact"
-                class="block text-stone-400 hover:text-white transition-colors"
+                class="block text-slate-400 hover:text-white transition-colors"
                 >Contact</a
               >
             </nav>
@@ -1688,7 +1692,7 @@ import Section from "../components/Section.astro";
             <div class="space-y-4">
               <a
                 href="tel:+14026901100"
-                class="flex items-center gap-3 text-stone-400 hover:text-white transition-colors"
+                class="flex items-center gap-3 text-slate-400 hover:text-white transition-colors"
               >
                 <svg
                   class="w-5 h-5 flex-shrink-0"
@@ -1707,7 +1711,7 @@ import Section from "../components/Section.astro";
               </a>
               <a
                 href="mailto:info@whitetailrunia.com"
-                class="flex items-center gap-3 text-stone-400 hover:text-white transition-colors"
+                class="flex items-center gap-3 text-slate-400 hover:text-white transition-colors"
               >
                 <svg
                   class="w-5 h-5 flex-shrink-0"
@@ -1724,7 +1728,7 @@ import Section from "../components/Section.astro";
                 </svg>
                 info@whitetailrunia.com
               </a>
-              <div class="flex items-center gap-3 text-stone-400">
+              <div class="flex items-center gap-3 text-slate-400">
                 <svg
                   class="w-5 h-5 flex-shrink-0"
                   fill="none"
@@ -1753,13 +1757,13 @@ import Section from "../components/Section.astro";
         <div
           class="border-t border-stone-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm"
         >
-          <p class="text-stone-500">
+          <p class="text-slate-500">
             &copy; 2025 Whitetail Run Subdivision. All rights reserved.
           </p>
-          <p class="text-stone-500">
+          <p class="text-slate-500">
             Listed by <a
               href="#"
-              class="text-white hover:text-red-600 font-semibold"
+              class="text-white hover:text-gold font-semibold"
               >Jim Hughes Real Estate</a
             > | 410 South Locust, Glenwood, IA 51534
           </p>
@@ -1768,9 +1772,10 @@ import Section from "../components/Section.astro";
     </footer>
 
     <script>
-      // Add white background to header on scroll
+      // Header scroll effect
       const header = document.getElementById("main-header");
-      const logo = document.getElementById("header-logo");
+      const logoFull = document.getElementById("header-logo-full");
+      const logoMark = document.getElementById("header-logo-mark");
       const logoLink = document.getElementById("logo-link");
       const navLinks = document.querySelectorAll(".nav-link");
       const sections = document.querySelectorAll("section[id]");
@@ -1778,13 +1783,23 @@ import Section from "../components/Section.astro";
       // Header scroll effect
       window.addEventListener("scroll", () => {
         if (window.scrollY > 50) {
-          header.classList.add("bg-white", "shadow-md");
-          logo.classList.remove("h-28");
-          logo.classList.add("h-20");
+          header.style.backgroundColor = "rgba(46, 53, 54, 0.95)";
+          header.classList.add("backdrop-blur-sm");
+          header.classList.remove("py-2");
+          header.classList.add("py-6");
+          logoFull.classList.remove("h-48");
+          logoFull.classList.add("h-20");
+          logoFull.style.opacity = "0";
+          logoMark.style.opacity = "1";
         } else {
-          header.classList.remove("bg-white", "shadow-md");
-          logo.classList.remove("h-20");
-          logo.classList.add("h-28");
+          header.style.backgroundColor = "transparent";
+          header.classList.remove("backdrop-blur-sm");
+          header.classList.remove("py-6");
+          header.classList.add("py-2");
+          logoFull.classList.remove("h-20");
+          logoFull.classList.add("h-48");
+          logoFull.style.opacity = "1";
+          logoMark.style.opacity = "0";
         }
       });
 

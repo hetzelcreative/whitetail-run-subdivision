@@ -4,20 +4,72 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Dark forest green backgrounds with subtle gradients */
 .gradient-bg {
-  background: linear-gradient(135deg, hsl(40 40% 97%), hsl(40 30% 93%));
+  background: linear-gradient(135deg, #2F3A3A, #3C6C5E);
 }
 
 .gradient-bg-dark {
-  background: linear-gradient(135deg, hsl(30 10% 15%), hsl(25 8% 10%));
+  background: linear-gradient(135deg, #2E3536, #2F3A3A);
 }
 
+.gradient-bg-light {
+  background: linear-gradient(135deg, #3C6C5E, #4a7d6e);
+}
+
+/* Gold decorative elements */
 .decorative-line {
   width: 5rem;
   height: 0.25rem;
-  background: #a8a29e; /* stone-400 */
+  background: #C99255;
 }
 
+/* Gold accent for active nav */
 .nav-link.active {
-  color: hsl(212 100% 31%); /* blue-900 */
+  color: #C99255;
+}
+
+/* Gold text and background - no gradients */
+.text-gold {
+  color: #C99255;
+}
+
+.bg-gold {
+  background-color: #C99255;
+}
+
+.border-gold {
+  border-color: #C99255;
+}
+
+.hover\:bg-gold:hover {
+  background-color: #C99255;
+}
+
+/* Forest green background */
+.bg-forest {
+  background-color: #2E3536;
+}
+
+.bg-forest-mid {
+  background-color: #2F3A3A;
+}
+
+.bg-forest-light {
+  background-color: #3C6C5E;
+}
+
+/* Lighter green accent */
+.text-forest-light {
+  color: #3C6C5E;
+}
+
+.border-forest-light {
+  border-color: #3C6C5E;
+}
+
+/* Hover effect with lighter green glow */
+.hover-forest-glow:hover {
+  box-shadow: 0 0 20px rgba(60, 108, 94, 0.3), 0 0 40px rgba(60, 108, 94, 0.1);
+  border-color: #3C6C5E;
 }
