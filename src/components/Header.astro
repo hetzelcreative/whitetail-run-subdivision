@@ -7,7 +7,7 @@ import Button from "./ui/Button.astro";
   class="fixed top-0 left-0 right-0 z-50 py-2 transition-all duration-300 ease-in-out"
 >
   <div class="container mx-auto px-6">
-    <div class="flex items-center justify-between">
+    <div class="flex items-center justify-between gap-6">
       <!-- Logo -->
       <div class="flex-shrink-0 relative">
         <a href="#" id="logo-link" class="cursor-pointer">
@@ -26,36 +26,177 @@ import Button from "./ui/Button.astro";
         </a>
       </div>
 
-      <!-- Navigation -->
-      <nav class="hidden md:flex items-center space-x-8 font-body">
-        <a
-          href="#about"
-          class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
-          data-section="about">About</a
-        >
-        <a
-          href="#location"
-          class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
-          data-section="location">Location</a
-        >
-        <a
-          href="#acreages-for-sale"
-          class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
-          data-section="acreages-for-sale">Acreages For Sale</a
-        >
-        <a
-          href="#contact"
-          class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
-          data-section="contact">Contact</a
-        >
+      <!-- Priority Nav -->
+      <nav
+        class="hidden sm:flex flex-1 items-center justify-center min-w-0 gap-8 font-body"
+        data-priority-nav
+      >
+        <!-- Visible items row -->
+        <div class="flex items-center gap-8 min-w-0 whitespace-nowrap" data-row></div>
+
+        <!-- "More" dropdown -->
+        <div class="relative group shrink-0" data-more hidden>
+          <button class="flex items-center gap-2 text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest cursor-pointer">
+            More
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+            </svg>
+          </button>
+          <div class="absolute left-0 right-0 top-full h-3"></div>
+          <div class="absolute top-full right-0 mt-3 w-52 bg-forest rounded-xl shadow-2xl overflow-hidden z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+            <div data-overflow></div>
+          </div>
+        </div>
+
+        <!-- Hidden source pool -->
+        <div class="hidden" data-source>
+          <a
+            href="#about"
+            class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
+            data-section="about">About</a
+          >
+          <a
+            href="#location"
+            class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
+            data-section="location">Location</a
+          >
+          <a
+            href="#acreages-for-sale"
+            class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
+            data-section="acreages-for-sale">Acreages For Sale</a
+          >
+          <a
+            href="#contact"
+            class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
+            data-section="contact">Contact</a
+          >
+        </div>
+
+        <script is:inline>
+          (() => {
+            const root = document.currentScript?.closest('[data-priority-nav]');
+            if (!root) return;
+
+            const row = root.querySelector('[data-row]');
+            const source = root.querySelector('[data-source]');
+            const more = root.querySelector('[data-more]');
+            const overflow = root.querySelector('[data-overflow]');
+            if (!row || !source || !more || !overflow) return;
+
+            const overflowClass = 'block px-5 py-3 text-slate-200 uppercase hover:bg-gold hover:text-stone-900 font-bold text-sm tracking-widest transition-colors';
+
+            const storeOriginal = (el) => {
+              if (el?.nodeType === 1 && el.dataset.originalClass == null) {
+                el.dataset.originalClass = el.getAttribute('class') || '';
+              }
+            };
+
+            const setInOverflow = (el, inOverflow) => {
+              if (el.tagName === 'A') {
+                storeOriginal(el);
+                el.setAttribute('class', inOverflow ? overflowClass : (el.dataset.originalClass || ''));
+              }
+            };
+
+            Array.from(source.children).forEach((el) => {
+              storeOriginal(el);
+              row.appendChild(el);
+              setInOverflow(el, false);
+            });
+
+            const getGap = (el) => parseFloat(getComputedStyle(el).columnGap || '0') || 0;
+            const childrenWidth = (container) => {
+              const kids = Array.from(container.children);
+              if (!kids.length) return 0;
+              const gap = getGap(container);
+              return kids.reduce((sum, el) => sum + el.getBoundingClientRect().width, 0) + gap * Math.max(0, kids.length - 1);
+            };
+
+            const fits = () => {
+              const gap = getGap(root);
+              const rowW = childrenWidth(row);
+              const moreW = more.hidden ? 0 : more.getBoundingClientRect().width;
+              const needed = rowW + (row.children.length ? gap : 0) + (more.hidden ? 0 : moreW + gap);
+              return needed <= root.getBoundingClientRect().width;
+            };
+
+            const moveToOverflow = (el) => { overflow.insertBefore(el, overflow.firstChild); setInOverflow(el, true); };
+            const moveToRow = (el) => { row.appendChild(el); setInOverflow(el, false); };
+
+            const layout = () => {
+              more.hidden = overflow.children.length === 0;
+
+              while (!fits()) {
+                const last = Array.from(row.children).at(-1);
+                if (!last) break;
+                moveToOverflow(last);
+                more.hidden = false;
+              }
+
+              while (overflow.firstElementChild) {
+                const candidate = overflow.firstElementChild;
+                moveToRow(candidate);
+                if (!fits()) { moveToOverflow(candidate); break; }
+              }
+
+              more.hidden = overflow.children.length === 0;
+            };
+
+            window.addEventListener('resize', () => requestAnimationFrame(layout), { passive: true });
+            new ResizeObserver(() => requestAnimationFrame(layout)).observe(root);
+            document.fonts?.ready?.then(() => requestAnimationFrame(layout)).catch(() => {});
+            requestAnimationFrame(layout);
+          })();
+        </script>
       </nav>
 
-      <!-- CTA Button -->
-      <div class="flex-shrink-0">
+      <!-- CTA Button (hidden on mobile) -->
+      <div class="hidden sm:block flex-shrink-0">
         <Button href="#contact" class="px-6 py-3">
           Contact Us
         </Button>
       </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="sm:hidden flex items-center justify-center w-10 h-10 text-white hover:text-gold transition-colors relative z-[60] cursor-pointer"
+        aria-label="Open menu"
+      >
+        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
   </div>
 </header>
+
+<!-- Mobile Menu Overlay -->
+<div
+  id="mobile-menu"
+  class="fixed inset-0 sm:hidden z-50 opacity-0 pointer-events-none transition-all duration-300"
+  style="background: rgba(46, 53, 54, 0.95); backdrop-filter: blur(8px);"
+>
+  <button
+    id="mobile-menu-close"
+    class="absolute top-6 right-6 w-10 h-10 text-white hover:text-gold transition-colors cursor-pointer"
+    aria-label="Close menu"
+  >
+    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+    </svg>
+  </button>
+  <div class="flex flex-col items-center justify-center h-full px-6">
+    <nav class="w-full max-w-md space-y-0 font-body">
+      <a href="#about" class="mobile-nav-link block py-4 text-white hover:text-gold transition-colors font-bold uppercase text-lg tracking-widest border-b border-white/10">About</a>
+      <a href="#location" class="mobile-nav-link block py-4 text-white hover:text-gold transition-colors font-bold uppercase text-lg tracking-widest border-b border-white/10">Location</a>
+      <a href="#acreages-for-sale" class="mobile-nav-link block py-4 text-white hover:text-gold transition-colors font-bold uppercase text-lg tracking-widest border-b border-white/10">Acreages For Sale</a>
+      <a href="#contact" class="mobile-nav-link block py-4 text-white hover:text-gold transition-colors font-bold uppercase text-lg tracking-widest border-b border-white/10">Contact</a>
+      <div class="pt-6">
+        <Button href="#contact" class="block w-full text-center px-8 py-4">
+          Contact Us
+        </Button>
+      </div>
+    </nav>
+  </div>
+</div>

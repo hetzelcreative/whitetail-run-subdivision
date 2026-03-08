@@ -112,6 +112,30 @@ import Footer from "../components/Footer.astro";
           }
         });
       });
+
+      // Mobile menu
+      const mobileMenu = document.getElementById("mobile-menu");
+      const mobileMenuBtn = document.getElementById("mobile-menu-btn");
+      const mobileMenuClose = document.getElementById("mobile-menu-close");
+      const mobileNavLinks = mobileMenu?.querySelectorAll("a");
+
+      const openMobileMenu = () => {
+        mobileMenu?.classList.remove("opacity-0", "pointer-events-none");
+        mobileMenu?.classList.add("opacity-100", "pointer-events-auto");
+        document.body.style.overflow = "hidden";
+      };
+
+      const closeMobileMenu = () => {
+        mobileMenu?.classList.remove("opacity-100", "pointer-events-auto");
+        mobileMenu?.classList.add("opacity-0", "pointer-events-none");
+        document.body.style.overflow = "";
+      };
+
+      mobileMenuBtn?.addEventListener("click", openMobileMenu);
+      mobileMenuClose?.addEventListener("click", closeMobileMenu);
+      mobileNavLinks?.forEach((link) => {
+        link.addEventListener("click", closeMobileMenu);
+      });
     </script>
   </body>
 </html>
