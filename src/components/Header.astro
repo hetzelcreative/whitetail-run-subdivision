@@ -1,0 +1,61 @@
+---
+import Button from "./ui/Button.astro";
+---
+
+<header
+  id="main-header"
+  class="fixed top-0 left-0 right-0 z-50 py-2 transition-all duration-300 ease-in-out"
+>
+  <div class="container mx-auto px-6">
+    <div class="flex items-center justify-between">
+      <!-- Logo -->
+      <div class="flex-shrink-0 relative">
+        <a href="#" id="logo-link" class="cursor-pointer">
+          <img
+            src="/whitetail-run-logo.png"
+            alt="Whitetail Run"
+            class="h-48 w-auto transition-all duration-300 ease-in-out"
+            id="header-logo-full"
+          />
+          <img
+            src="/whitetail-run-lettermark-white.png"
+            alt="Whitetail Run"
+            class="absolute top-0 left-0 transition-all duration-300 ease-in-out opacity-0 w-[190px] h-auto max-w-none"
+            id="header-logo-mark"
+          />
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="hidden md:flex items-center space-x-8 font-body">
+        <a
+          href="#about"
+          class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
+          data-section="about">About</a
+        >
+        <a
+          href="#location"
+          class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
+          data-section="location">Location</a
+        >
+        <a
+          href="#acreages-for-sale"
+          class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
+          data-section="acreages-for-sale">Acreages For Sale</a
+        >
+        <a
+          href="#contact"
+          class="nav-link text-slate-200 hover:text-gold transition-colors font-bold text-sm uppercase tracking-widest"
+          data-section="contact">Contact</a
+        >
+      </nav>
+
+      <!-- CTA Button -->
+      <div class="flex-shrink-0">
+        <Button href="#contact" class="px-6 py-3">
+          Contact Us
+        </Button>
+      </div>
+    </div>
+  </div>
+</header>

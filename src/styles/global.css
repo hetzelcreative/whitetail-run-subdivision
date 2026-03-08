@@ -1,75 +1,132 @@
 @import "tailwindcss";
 
+/* ============================================
+   Color Palette & Design Tokens
+   ============================================ */
+:root {
+  /* Gold accent */
+  --color-gold: #C99255;
+
+  /* Forest greens (dark to light) */
+  --color-forest-dark: #2E3536;
+  --color-forest: #2F3A3A;
+  --color-forest-light: #3C6C5E;
+  --color-forest-lighter: #4a7d6e;
+
+  /* Fonts */
+  --font-heading: 'Vollkorn', serif;
+  --font-body: 'Inter', sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
-/* Dark forest green backgrounds with subtle gradients */
-.gradient-bg {
-  background: linear-gradient(135deg, #2F3A3A, #3C6C5E);
+/* ============================================
+   Font Utilities
+   ============================================ */
+@utility font-heading {
+  font-family: var(--font-heading);
 }
 
-.gradient-bg-dark {
-  background: linear-gradient(135deg, #2E3536, #2F3A3A);
+@utility font-body {
+  font-family: var(--font-body);
 }
 
-.gradient-bg-light {
-  background: linear-gradient(135deg, #3C6C5E, #4a7d6e);
+/* ============================================
+   Gold Utilities
+   ============================================ */
+@utility text-gold {
+  color: var(--color-gold);
 }
 
-/* Gold decorative elements */
+@utility bg-gold {
+  background-color: var(--color-gold);
+}
+
+@utility border-gold {
+  border-color: var(--color-gold);
+}
+
+/* ============================================
+   Forest Green Utilities
+   ============================================ */
+@utility bg-forest {
+  background-color: var(--color-forest-dark);
+}
+
+@utility bg-forest-mid {
+  background-color: var(--color-forest);
+}
+
+@utility bg-forest-light {
+  background-color: var(--color-forest-light);
+}
+
+@utility text-forest-light {
+  color: var(--color-forest-light);
+}
+
+@utility border-forest-light {
+  border-color: var(--color-forest-light);
+}
+
+/* ============================================
+   Gradient Backgrounds
+   ============================================ */
+@utility gradient-bg {
+  background: linear-gradient(135deg, var(--color-forest), var(--color-forest-light));
+}
+
+@utility gradient-bg-dark {
+  background: linear-gradient(135deg, var(--color-forest-dark), var(--color-forest));
+}
+
+@utility gradient-bg-light {
+  background: linear-gradient(135deg, var(--color-forest-light), var(--color-forest-lighter));
+}
+
+/* ============================================
+   Component Classes
+   ============================================ */
+
+/* Hero video overlay */
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(46, 53, 54, 0.85),
+    rgba(47, 58, 58, 0.8),
+    rgba(46, 53, 54, 0.9)
+  );
+}
+
+/* Gold decorative line */
 .decorative-line {
   width: 5rem;
   height: 0.25rem;
-  background: #C99255;
+  background: var(--color-gold);
 }
 
-/* Gold accent for active nav */
+/* Active nav link */
 .nav-link.active {
-  color: #C99255;
+  color: var(--color-gold);
 }
 
-/* Gold text and background - no gradients */
-.text-gold {
-  color: #C99255;
+/* Custom select dropdown arrow */
+.select-arrow {
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 24 24%27 fill=%27none%27 stroke=%27currentColor%27 stroke-width=%272%27 stroke-linecap=%27round%27 stroke-linejoin=%27round%27%3e%3cpolyline points=%276 9 12 15 18 9%27%3e%3c/polyline%3e%3c/svg%3e');
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1.5em 1.5em;
 }
 
-.bg-gold {
-  background-color: #C99255;
+/* Scrolled header background */
+.header-scrolled {
+  background-color: rgba(46, 53, 54, 0.95);
 }
 
-.border-gold {
-  border-color: #C99255;
-}
-
-.hover\:bg-gold:hover {
-  background-color: #C99255;
-}
-
-/* Forest green background */
-.bg-forest {
-  background-color: #2E3536;
-}
-
-.bg-forest-mid {
-  background-color: #2F3A3A;
-}
-
-.bg-forest-light {
-  background-color: #3C6C5E;
-}
-
-/* Lighter green accent */
-.text-forest-light {
-  color: #3C6C5E;
-}
-
-.border-forest-light {
-  border-color: #3C6C5E;
-}
-
-/* Hover effect with lighter green glow */
+/* Hover glow effect */
 .hover-forest-glow:hover {
   box-shadow: 0 0 20px rgba(60, 108, 94, 0.3), 0 0 40px rgba(60, 108, 94, 0.1);
-  border-color: #3C6C5E;
+  border-color: var(--color-forest-light);
 }

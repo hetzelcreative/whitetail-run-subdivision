@@ -1,0 +1,106 @@
+---
+import { Image } from "astro:assets";
+import mapImage from "../assets/images/plot-map.png";
+import Button from "./ui/Button.astro";
+import Section from "./Section.astro";
+---
+
+<Section background="bg-forest">
+  <!-- Section Header -->
+  <div class="text-center mb-16">
+    <h2 class="font-heading text-5xl md:text-6xl font-semibold mb-6 text-white">
+      Your Acreage Awaits<br />
+      <span class="text-gold italic">Start Building Yours Today!</span>
+    </h2>
+  </div>
+
+  <!-- Plat Map -->
+  <div class="relative mb-16">
+    <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg overflow-hidden">
+      <Image
+        src={mapImage}
+        alt="Whitetail Run Subdivision Plat Map"
+        class="w-full h-auto"
+        widths={[800, 1200, 1600]}
+        sizes="(max-width: 768px) 100vw, 1200px"
+      />
+    </div>
+
+    <!-- "Models Coming Soon" Badge -->
+    <div
+      class="absolute top-8 left-8 bg-gold text-white rounded-full w-32 h-32 flex items-center justify-center shadow-2xl transform -rotate-12"
+    >
+      <div class="text-center">
+        <p class="font-heading text-xl font-semibold italic leading-tight">
+          Models<br />Coming<br />Soon!
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features List -->
+  <div class="max-w-5xl mx-auto">
+    <div class="grid md:grid-cols-2 gap-x-12 gap-y-4">
+      <div class="flex items-start space-x-3">
+        <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
+        </div>
+        <p class="text-slate-100 text-lg">
+          20 Minutes to Omaha & Council Bluffs
+        </p>
+      </div>
+
+      <div class="flex items-start space-x-3">
+        <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
+        </div>
+        <p class="text-slate-100 text-lg">One-Acre-Plus Homesites</p>
+      </div>
+
+      <div class="flex items-start space-x-3">
+        <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
+        </div>
+        <p class="text-slate-100 text-lg">
+          Paved Roads
+        </p>
+      </div>
+
+      <div class="flex items-start space-x-3">
+        <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
+        </div>
+        <p class="text-slate-100 text-lg">
+          Private Timber-Lined Homesites
+        </p>
+      </div>
+
+      <div class="flex items-start space-x-3">
+        <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
+        </div>
+        <p class="text-slate-100 text-lg">
+          Scenic Views & Wildlife
+        </p>
+      </div>
+
+      <div class="flex items-start space-x-3">
+        <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
+        </div>
+        <p class="text-slate-100 text-lg">
+          All Single-Family Homes
+        </p>
+      </div>
+
+      <div class="flex items-start space-x-3">
+        <div class="w-2 h-2 bg-gold rounded-full mt-2 flex-shrink-0">
+        </div>
+        <p class="text-slate-100 text-lg">
+          Glenwood Community School District
+        </p>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="mt-12 text-center">
+      <Button href="#contact" class="px-8 py-4">
+        Contact Us
+      </Button>
+    </div>
+  </div>
+</Section>

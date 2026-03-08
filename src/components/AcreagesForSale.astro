@@ -1,0 +1,96 @@
+---
+import { Image } from "astro:assets";
+import img23199 from "../assets/images/23199-frontier-lane.png";
+import img23106 from "../assets/images/23106-frontier-lane.png";
+import img23130 from "../assets/images/23130-frontier-lane.png";
+import Section from "./Section.astro";
+---
+
+<Section id="acreages-for-sale" background="bg-forest">
+  <!-- Section Header -->
+  <div class="text-center mb-16">
+    <p class="font-body text-gold text-sm font-bold tracking-widest uppercase mb-6">
+      Current Listings
+    </p>
+    <h2 class="font-heading text-5xl md:text-6xl font-semibold text-white mb-6">
+      Acreages for Sale
+    </h2>
+    <div class="decorative-line mx-auto mb-8"></div>
+    <p class="text-slate-300 text-lg max-w-3xl mx-auto leading-relaxed">
+      Discover move-in ready homes built by quality local builders, or
+      purchase a lot to build your custom dream home.
+    </p>
+  </div>
+
+  <!-- Property Cards -->
+  <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    <!-- 23199 Frontier Ln -->
+    <div class="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700/30">
+      <div class="relative">
+        <Image
+          src={img23199}
+          alt="23199 Frontier Ln"
+          class="w-full h-64 object-cover"
+          widths={[400, 600]}
+          sizes="(max-width: 768px) 100vw, 400px"
+        />
+        <span
+          class="absolute top-4 left-4 gradient-bg text-white text-sm font-semibold px-4 py-2 rounded-full"
+          >Sold</span
+        >
+      </div>
+      <div class="p-6">
+        <h3 class="font-heading text-2xl font-semibold text-white mb-4">
+          23199 Frontier Ln
+        </h3>
+
+      </div>
+    </div>
+
+    <!-- 23106 Frontier Ln -->
+    <div class="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700/30">
+      <div class="relative">
+        <Image
+          src={img23106}
+          alt="23106 Frontier Ln"
+          class="w-full h-64 object-cover"
+          widths={[400, 600]}
+          sizes="(max-width: 768px) 100vw, 400px"
+        />
+        <span
+          class="absolute top-4 left-4 gradient-bg text-white text-sm font-semibold px-4 py-2 rounded-full"
+          >Sold</span
+        >
+      </div>
+      <div class="p-6">
+        <h3 class="font-heading text-2xl font-semibold text-white mb-4">
+          23106 Frontier Ln
+        </h3>
+
+      </div>
+    </div>
+
+    <!-- 23130 Frontier Ln -->
+    <div class="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700/30">
+      <div class="relative">
+        <Image
+          src={img23130}
+          alt="23130 Frontier Ln"
+          class="w-full h-64 object-cover"
+          widths={[400, 600]}
+          sizes="(max-width: 768px) 100vw, 400px"
+        />
+        <span
+          class="absolute top-4 left-4 gradient-bg text-white text-sm font-semibold px-4 py-2 rounded-full"
+          >Sold</span
+        >
+      </div>
+      <div class="p-6">
+        <h3 class="font-heading text-2xl font-semibold text-white mb-4">
+          23130 Frontier Ln
+        </h3>
+
+      </div>
+    </div>
+  </div>
+</Section>

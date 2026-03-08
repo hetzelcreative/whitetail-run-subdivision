@@ -1,0 +1,94 @@
+---
+import Section from "./Section.astro";
+---
+
+<Section id="about" class="gradient-bg">
+  <div class="grid md:grid-cols-2 gap-20 items-center">
+    <!-- Left: Video -->
+    <div class="relative">
+      <video
+        controls
+        class="w-full h-auto rounded-lg shadow-lg"
+        poster="/video-poster.jpg"
+      >
+        <source src="/hero-video.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+    <!-- Right: Content -->
+    <div>
+      <p class="font-body text-gold text-sm font-bold tracking-widest uppercase mb-4">
+        About Whitetail Run
+      </p>
+
+      <h2 class="font-heading text-5xl md:text-6xl font-semibold mb-6 text-white">
+        Live the Acreage Life<br />
+        <span class="text-gold italic">Close to Glenwood</span>
+      </h2>
+
+      <div class="decorative-line mb-8"></div>
+
+      <p class="text-slate-300 text-lg mb-6 leading-relaxed">
+        Whitetail Run gives you what's hard to find anymore: real acreage, real privacy, and a real community just down the road. With homesites starting at one acre just outside Glenwood, you get the space to build your way without leaving the convenience of town far behind.
+      </p>
+
+      <p class="text-slate-300 text-lg mb-10 leading-relaxed">
+        Big lots, open sky, and room to build exactly what you want. Council Bluffs and the Omaha metro are just minutes up I-29, while the Loess Hills, scenic views, and western Iowa wildlife are right outside your door.
+      </p>
+
+      <!-- Features Grid -->
+      <div class="grid grid-cols-2 gap-6">
+        <div class="flex items-start space-x-3">
+          <div class="w-2 h-2 bg-gold rounded-full mt-2.5 flex-shrink-0">
+          </div>
+          <div>
+            <h3 class="font-heading text-2xl font-semibold text-white mb-1">
+              Prime Location
+            </h3>
+            <p class="text-slate-300 text-sm">
+              Minutes from Glenwood, I-29, and the Omaha Metro
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-3">
+          <div class="w-2 h-2 bg-gold rounded-full mt-2.5 flex-shrink-0">
+          </div>
+          <div>
+            <h3 class="font-heading text-2xl font-semibold text-white mb-1">
+              Scenic Wildlife Setting
+            </h3>
+            <p class="text-slate-300 text-sm">
+              Mature trees and wildlife views on every lot
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-3">
+          <div class="w-2 h-2 bg-gold rounded-full mt-2.5 flex-shrink-0">
+          </div>
+          <div>
+            <h3 class="font-heading text-2xl font-semibold text-white mb-1">
+              Quality Schools
+            </h3>
+            <p class="text-slate-300 text-sm">
+              Excellent Glenwood schools nearby
+            </p>
+          </div>
+        </div>
+
+        <div class="flex items-start space-x-3">
+          <div class="w-2 h-2 bg-gold rounded-full mt-2.5 flex-shrink-0">
+          </div>
+          <div>
+            <h3 class="font-heading text-2xl font-semibold text-white mb-1">
+              Paved Roads
+            </h3>
+            <p class="text-slate-300 text-sm">No gravel travel - all roads are paved!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</Section>

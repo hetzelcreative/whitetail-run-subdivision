@@ -1,0 +1,37 @@
+---
+interface Props {
+  variant?: "primary" | "outline";
+  href?: string;
+  type?: "button" | "submit";
+  class?: string;
+  disabled?: boolean;
+}
+
+const {
+  variant = "primary",
+  href,
+  type = "button",
+  class: className = "",
+  disabled = false,
+} = Astro.props;
+
+const base = "font-body font-medium transition-all uppercase tracking-widest text-sm rounded-md";
+
+const variants = {
+  primary: "bg-gold text-stone-900 hover:brightness-110 shadow-lg",
+  outline: "bg-transparent border-2 border-gold text-gold hover:bg-gold hover:text-stone-900 hover:shadow-lg",
+};
+
+const disabledClasses = disabled ? "cursor-default pointer-events-none opacity-50" : "cursor-pointer";
+const classes = `${base} ${variants[variant]} ${disabledClasses} ${className}`;
+const Tag = href ? "a" : "button";
+---
+
+<Tag
+  href={href}
+  type={!href ? type : undefined}
+  class={classes}
+  disabled={disabled}
+>
+  <slot />
+</Tag>

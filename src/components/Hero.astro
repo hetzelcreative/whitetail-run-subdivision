@@ -1,0 +1,49 @@
+---
+import Button from "./ui/Button.astro";
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex flex-col overflow-hidden"
+>
+  <!-- Video Background -->
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    class="absolute inset-0 w-full h-full object-cover"
+  >
+    <source src="/hero-video.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Overlay -->
+  <div class="absolute inset-0 hero-overlay"></div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 flex-1 flex items-center justify-center text-center px-6 py-32 pt-[calc(12rem+60px)]">
+    <div>
+      <p class="text-gold text-base tracking-widest uppercase mb-6 font-semibold">
+        Glenwood, IA Subdivision
+      </p>
+
+      <h1 class="font-heading text-6xl md:text-8xl font-semibold mb-8 text-white">
+        Where Nature<br />
+        Meets Home
+      </h1>
+
+      <p class="text-lg md:text-xl text-slate-200 max-w-3xl mx-auto mb-12 leading-relaxed">
+        Discover your dream homesite in this exclusive subdivision featuring
+        spacious lots, mature trees, and the peaceful beauty of Iowa
+        countryside.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <Button variant="outline" href="#tour" class="px-8 py-4">
+          View Acreages For Sale
+        </Button>
+      </div>
+    </div>
+  </div>
+</section>
