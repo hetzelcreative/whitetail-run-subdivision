@@ -1,6 +1,6 @@
 ---
 import { Image } from "astro:assets";
-import mapImage from "../assets/images/plot-map.png";
+import mapImage from "../assets/images/plot-map.svg";
 import Button from "./ui/Button.astro";
 import Section from "./Section.astro";
 ---
@@ -16,7 +16,7 @@ import Section from "./Section.astro";
 
   <!-- Plat Map -->
   <div class="relative mb-16">
-    <div class="bg-slate-800/50 backdrop-blur-sm rounded-lg overflow-hidden">
+    <div class="rounded-lg overflow-hidden">
       <Image
         src={mapImage}
         alt="Whitetail Run Subdivision Plat Map"
