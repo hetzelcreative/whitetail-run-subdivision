@@ -13,9 +13,11 @@ import Footer from "../components/Footer.astro";
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <link rel="manifest" href="/site.webmanifest" />
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
@@ -26,6 +28,65 @@ import Footer from "../components/Footer.astro";
       rel="stylesheet"
     />
     <title>Whitetail Run - Glenwood, Iowa</title>
+    <meta name="description" content="Whitetail Run offers premium one-acre-plus homesites in Glenwood, Iowa. Paved roads, mature trees, and scenic views — just 20 minutes from Omaha and Offutt AFB." />
+    <link rel="canonical" href="https://whitetailglenwood.com/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Whitetail Run" />
+    <meta property="og:title" content="Whitetail Run - Premium Homesites in Glenwood, Iowa" />
+    <meta property="og:description" content="One-acre-plus homesites with paved roads, mature trees, and scenic views in Glenwood, Iowa. Just 20 minutes from Omaha and Offutt AFB." />
+    <meta property="og:url" content="https://whitetailglenwood.com/" />
+    <meta property="og:image" content="https://whitetailglenwood.com/og-image.png" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Whitetail Run - Premium Homesites in Glenwood, Iowa" />
+    <meta name="twitter:description" content="One-acre-plus homesites with paved roads, mature trees, and scenic views in Glenwood, Iowa. Just 20 minutes from Omaha and Offutt AFB." />
+    <meta name="twitter:image" content="https://whitetailglenwood.com/og-image.png" />
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "RealEstateAgent",
+            "name": "Jim Hughes Real Estate",
+            "telephone": "+1-712-527-3114",
+            "email": "info@jimhughesrealestate.com",
+            "url": "https://www.jimhughesrealestate.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "410 South Locust",
+              "addressLocality": "Glenwood",
+              "addressRegion": "IA",
+              "postalCode": "51534",
+              "addressCountry": "US"
+            }
+          },
+          {
+            "@type": "Place",
+            "name": "Whitetail Run",
+            "description": "A residential subdivision offering premium one-acre-plus homesites with paved roads, mature trees, and scenic views in Glenwood, Iowa.",
+            "url": "https://whitetailglenwood.com",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "23106 Frontier Ln",
+              "addressLocality": "Glenwood",
+              "addressRegion": "IA",
+              "postalCode": "51534",
+              "addressCountry": "US"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": 41.08070915758956,
+              "longitude": -95.7450776
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body class="font-sans antialiased">
     <Header />
