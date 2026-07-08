@@ -1,7 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import img23199 from "../assets/images/23199-frontier-lane.png";
-import img23106 from "../assets/images/23106-frontier-lane.png";
+import img23106 from "../assets/images/23106-frontier-lane.jpg";
 import img23130 from "../assets/images/23130-frontier-lane.png";
 import Section from "./Section.astro";
 ---
@@ -24,6 +24,34 @@ import Section from "./Section.astro";
 
   <!-- Property Cards -->
   <div class="grid md:grid-cols-3 gap-8 max-w-7xl mx-auto">
+    <!-- 23106 Frontier Ln -->
+    <a
+      href="https://jimhughesrealestate.com/properties-for-sale/23106-frontier-lane-glenwood-ia"
+      target="_blank"
+      rel="noopener"
+      class="block bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700/30 transition-transform hover:-translate-y-1"
+    >
+      <div class="relative">
+        <Image
+          src={img23106}
+          alt="23106 Frontier Ln"
+          class="w-full h-64 object-cover"
+          widths={[400, 600]}
+          sizes="(max-width: 768px) 100vw, 400px"
+        />
+        <span
+          class="absolute top-4 left-4 bg-gold text-white text-sm font-semibold px-4 py-2 rounded-full"
+          >For Sale</span
+        >
+      </div>
+      <div class="p-6">
+        <h3 class="font-heading text-2xl font-semibold text-white mb-4">
+          23106 Frontier Ln
+        </h3>
+
+      </div>
+    </a>
+
     <!-- 23199 Frontier Ln -->
     <div class="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700/30">
       <div class="relative">
@@ -42,29 +70,6 @@ import Section from "./Section.astro";
       <div class="p-6">
         <h3 class="font-heading text-2xl font-semibold text-white mb-4">
           23199 Frontier Ln
-        </h3>
-
-      </div>
-    </div>
-
-    <!-- 23106 Frontier Ln -->
-    <div class="bg-slate-800/60 rounded-xl overflow-hidden border border-slate-700/30">
-      <div class="relative">
-        <Image
-          src={img23106}
-          alt="23106 Frontier Ln"
-          class="w-full h-64 object-cover"
-          widths={[400, 600]}
-          sizes="(max-width: 768px) 100vw, 400px"
-        />
-        <span
-          class="absolute top-4 left-4 gradient-bg text-white text-sm font-semibold px-4 py-2 rounded-full"
-          >Sold</span
-        >
-      </div>
-      <div class="p-6">
-        <h3 class="font-heading text-2xl font-semibold text-white mb-4">
-          23106 Frontier Ln
         </h3>
 
       </div>
